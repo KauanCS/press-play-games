@@ -6,6 +6,7 @@ import {
 } from './styles';
 
 import FilterComponent from './filter-component';
+import OrderComponent from './order-component';
 
 const Pedidos = () => {
   const suporteUsers = [
@@ -14,13 +15,13 @@ const Pedidos = () => {
     { id: '3', name: 'Kaio' },
   ];
 
-  const testArrayAutocomplete = [
-    { value: '1', label: 'A' },
-    { value: '2', label: 'B' },
-    { value: '3', label: 'C' },
-    { value: '4', label: 'D' },
-    { value: '5', label: 'E' },
-  ];
+  // const testArrayAutocomplete = [
+  //   { value: '1', label: 'A' },
+  //   { value: '2', label: 'B' },
+  //   { value: '3', label: 'C' },
+  //   { value: '4', label: 'D' },
+  //   { value: '5', label: 'E' },
+  // ];
 
   return (
     <Container>
@@ -28,6 +29,7 @@ const Pedidos = () => {
       <FilterComponent
         suporteUsers={suporteUsers}
       />
+      <OrderComponent />
     </Container>
   );
 };

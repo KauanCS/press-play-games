@@ -1,5 +1,5 @@
 {
-  "name": "costa-medical-system",
+  "name": "press-play-games",
   "version": "0.1.0",
   "proxy": "http://localhost:5000",
   "private": true,
@@ -24,7 +24,6 @@
   },
   "scripts": {
     "start": "craco start",
-    "start-api": "cd E:\\My Files\\Programming\\Costa medical System\\costa-medical_api && venv/bin/flask run --no-debugger",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject"
