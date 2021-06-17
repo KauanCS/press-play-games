@@ -5,6 +5,7 @@ import {
   ButtonWhatsapp,
   Container,
   ContainerAddedGame,
+  ContainerButtonWhatsapp,
   ContainerHeaderGames,
   ContainerTradeGame,
   ContainerRemovedGame,
@@ -109,7 +110,6 @@ const ItemContent = () => {
           </ContainerFields>
 
           <ContainerFields>
-            {/* FIX ME - usar input simples aqui */}
             <Input placeholder="Senha" size="small" />
           </ContainerFields>
         </ContainerAddedGame>
@@ -123,11 +123,13 @@ const ItemContent = () => {
           >
             Anotar
           </ButtonPrimary>
-          <ButtonWhatsapp
-            icon={<IconWhatsapp />}
-          >
-            Conversar
-          </ButtonWhatsapp>
+          <ContainerButtonWhatsapp>
+            <ButtonWhatsapp
+              icon={<IconWhatsapp />}
+            >
+              Conversar
+            </ButtonWhatsapp>
+          </ContainerButtonWhatsapp>
         </ContainerInput>
 
         <ButtonPrimary>Fechar pedido</ButtonPrimary>

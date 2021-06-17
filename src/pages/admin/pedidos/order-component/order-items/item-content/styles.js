@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const ContainerHeaderGames = styled.div`
   display: flex;
-  background-color: #ea1e63;
+  background-color: ${(props) => props.theme.color.backgroundTitleOrder};
   color: white;
   border-radius: 4px;
   padding: 4px;
@@ -32,7 +32,7 @@ export const ContainerTradeGame = styled.div`
 
 export const ContainerRemovedGame = styled.div`
   display: flex;
-  background-color: #f5c6cb;
+  background-color: ${(props) => props.theme.color.backgroundRemovedGame};
   padding: 4px;
   border-radius: 4px;
   margin-bottom: 5px;
@@ -40,7 +40,7 @@ export const ContainerRemovedGame = styled.div`
 
 export const ContainerAddedGame = styled.div`
   display: flex;
-  background-color: #c3e6cb;
+  background-color: ${(props) => props.theme.color.backgroundAddedGame};
   padding: 4px;
   border-radius: 4px;
 `;
@@ -54,9 +54,12 @@ export const ContainerFooter = styled.div`
 export const ContainerInput = styled.div`
   display: flex;
   width: 500px;
+`;
+
+export const ContainerButtonWhatsapp = styled.div`
   && .ant-btn-primary:hover, .ant-btn-primary:focus {
-    background-color: #18b035;
-    border: 1px solid #18b035;
+    background-color: ${(props) => props.theme.color.backgroundButtonWhatsappHover};
+    border: 1px solid ${(props) => props.theme.color.backgroundButtonWhatsappHover};
   }
 `;
 
@@ -79,7 +82,7 @@ export const Tooltip = styled(AntTooltip).attrs((props) => ({
 `;
 
 export const TextRemovedGame = styled.p`
-  color: #721c24;
+  color: ${(props) => props.theme.color.textRemovedGame};
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -88,7 +91,7 @@ export const TextRemovedGame = styled.p`
 `;
 
 export const TextAddedGame = styled.p`
-  color: #155724;
+  color: ${(props) => props.theme.color.textAddedGame};
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -118,8 +121,8 @@ export const ButtonWhatsapp = styled(CustomButton)`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  background-color: #00c727;
-  border: 1px solid #00c727;
+  background-color: ${(props) => props.theme.color.backgroundButtonWhatsapp};
+  border: 1px solid ${(props) => props.theme.color.backgroundButtonWhatsapp};
 `;
 
 export const Input = styled(AntInput)`

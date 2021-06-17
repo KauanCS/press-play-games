@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex: 1;
   height: 100%;
   width: 100%;
-  background-color: #262f3c;
+  background-color: ${(props) => props.theme.color.primary};
   justify-content: center;
 `;
 

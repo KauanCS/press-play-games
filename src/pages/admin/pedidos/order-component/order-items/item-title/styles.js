@@ -22,7 +22,7 @@ export const ContainerTitle = styled.div`
 `;
 
 export const CopyIcon = styled(FaCopy)`
-  color: #454545;
+  color: ${(props) => props.theme.color.iconCopy};
   margin-left: 5px;
   margin-top: 3px;
   cursor: pointer;

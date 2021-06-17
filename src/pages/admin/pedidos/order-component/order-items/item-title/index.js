@@ -13,10 +13,18 @@ const ItemTitle = () => {
   const user = 'ppg1111';
   const obsText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
+  const handleClickCheckBox = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleClickCopyIcon = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <Container>
       <ContainerTitle>
-        <Checkbox />
+        <Checkbox onClick={handleClickCheckBox} />
         <Title>{user}</Title>
       </ContainerTitle>
 
@@ -30,7 +38,7 @@ const ItemTitle = () => {
 
       <ContainerTitle bigSize>
         <Title>+55 (16) 99999-9999</Title>
-        <CopyIcon />
+        <CopyIcon onClick={handleClickCopyIcon} />
       </ContainerTitle>
 
       <ContainerTitle>
