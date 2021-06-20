@@ -6,9 +6,10 @@ export const Container = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${(props) => props.theme.color.primary};
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
-export const Text = styled.p`
+export const Text = styled.h1`
   color: white;
 `;

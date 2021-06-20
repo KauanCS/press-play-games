@@ -33,7 +33,7 @@ const ItemTitle = () => {
       </ContainerTitle>
 
       <ContainerTitle>
-        <Title>Diamante</Title>
+        <Title>PS4</Title>
       </ContainerTitle>
 
       <ContainerTitle bigSize>

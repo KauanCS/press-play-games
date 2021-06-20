@@ -6,12 +6,9 @@ import {
   Collapse,
 } from './styles';
 
-import ItemTitle from './item-title';
-import ItemContent from './item-content';
-
-const OrderTitles = () => {
+const GameList = () => {
   const { Panel } = Collapse;
-
+  const GameTitle = 'A way out';
   return (
     <Container>
       <Collapse
@@ -20,18 +17,18 @@ const OrderTitles = () => {
         className="site-collapse-custom-collapse"
         expandIconPosition="right"
       >
-        <Panel header={ItemTitle()} key="1" className="site-collapse-custom-panel">
-          <ItemContent />
+        <Panel header={GameTitle} key="1" className="site-collapse-custom-panel">
+          AAAA
         </Panel>
-        <Panel header={ItemTitle()} key="2" className="site-collapse-custom-panel">
-          <ItemContent />
+        <Panel header={GameTitle} key="2" className="site-collapse-custom-panel">
+          AAAA
         </Panel>
-        <Panel header={ItemTitle()} key="3" className="site-collapse-custom-panel">
-          <ItemContent />
+        <Panel header={GameTitle} key="3" className="site-collapse-custom-panel">
+          AAAA
         </Panel>
       </Collapse>
     </Container>
   );
 };
 
-export default OrderTitles;
+export default GameList;

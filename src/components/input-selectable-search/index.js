@@ -29,10 +29,10 @@ const InputSearch = (props) => {
       >
         {_.map(options, (item) => (
           <Option
-            key={item.id}
-            value={item.name}
+            key={item.key}
+            value={item.value}
           >
-            {item.name}
+            {item.value}
           </Option>
         ))}
       </Select>
@@ -44,8 +44,8 @@ InputSearch.propTypes = {
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
+      key: PropTypes.string,
+      value: PropTypes.string,
     }),
   ).isRequired,
   multiple: PropTypes.bool,

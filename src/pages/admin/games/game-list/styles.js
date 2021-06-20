@@ -6,6 +6,8 @@ import {
 
 export const Container = styled.div`
   display: flex;
+  margin-top: 20px;
+  width: 100%;
 `;
 
 export const Collapse = styled(AntCollapse)`
