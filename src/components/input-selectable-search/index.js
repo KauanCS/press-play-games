@@ -56,7 +56,7 @@ InputSearch.propTypes = {
 InputSearch.defaultProps = {
   multiple: false,
   allowClear: true,
-  width: undefined,
+  width: '100%',
 };
 
 export default InputSearch;

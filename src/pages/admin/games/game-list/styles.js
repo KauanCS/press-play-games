@@ -8,6 +8,9 @@ export const Container = styled.div`
   display: flex;
   margin-top: 20px;
   width: 100%;
+  overflow-y: auto;
+  background-color: ${(props) => props.theme.color.white};
+  border-radius: 4px;
 `;
 
 export const Collapse = styled(AntCollapse)`

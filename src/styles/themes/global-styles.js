@@ -23,6 +23,27 @@ const GlobalStyles = createGlobalStyle`
     font-smoothing: antialiased;
     font-weight: 400;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0,0,0,0);
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 4px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #606060; 
+  }
 `;
 
 export default GlobalStyles;
