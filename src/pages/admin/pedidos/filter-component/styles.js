@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {
-  FaFilter,
   FaChevronDown,
   FaChevronRight,
 } from 'react-icons/fa';
@@ -10,28 +9,20 @@ import {
 
 import CustomButton from '../../../../components/custom-button';
 
-export const ContainerListFilter = styled.div`
+export const ContainerDefaultFilters = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-around;
-  -webkit-box-shadow: 0px 10px 10px -5px rgba(0,0,0,.5);
-  -moz-box-shadow: 0px 10px 10px -5px rgba(0,0,0,.5);
-  box-shadow: 0px 10px 10px -5px rgba(0,0,0,.5);
-  border-radius: 8px;
-  background-color: ${(props) => props.theme.color.primaryDark};
+`;
+
+export const ContainerColumn = styled.div`
+  display: flex;
   flex-direction: column;
-  padding: 20px;
+  flex: 1;
 `;
 
 export const ContainerButtonSelect = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-`;
-
-export const ContainerTitle = styled.div`
-  display: flex;
-  align-items: baseline;
 `;
 
 export const ContainerMoreFilters = styled.div`
@@ -45,11 +36,6 @@ export const ContainerMoreFilters = styled.div`
   padding: 5px;
   margin-top: 10px;
   border-radius: 4px;
-`;
-
-export const ContainerContent = styled.div`
-  display: flex;
-  margin-bottom: 10px
 `;
 
 export const ContainerContentCheckbox = styled.div`
@@ -77,16 +63,6 @@ export const ContainerCheckbox = styled.div`
 
 export const Button = styled(CustomButton)`
   margin: 5px 0;
-`;
-
-export const FilterIcon = styled(FaFilter)`
-  color:  ${(props) => props.theme.color.white};
-  font-size: 1.5em;
-  margin-right: 10px;
-`;
-
-export const Title = styled.h1`
-  color:  ${(props) => props.theme.color.white};
 `;
 
 export const FilterText = styled.p`

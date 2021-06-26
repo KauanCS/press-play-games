@@ -4,22 +4,20 @@ import {
   Button,
   ContainerButtonSelect,
   ContainerCheckbox,
-  ContainerContent,
   ContainerContentCheckbox,
-  ContainerListFilter,
+  ContainerColumn,
+  ContainerDefaultFilters,
   ContainerMoreFilters,
   ContainerTitleMoreFilters,
-  ContainerTitle,
-  FilterIcon,
   FilterText,
   IconArrowDown,
   IconArrowRight,
-  Title,
   MoreFilterTitle,
   WrapperCheckbox,
 } from './styles';
 
-import Checkbox from './checkbox-component';
+import Checkbox from '../../../../components/checkbox-component';
+import FilterWrapper from '../../../../components/filter-wrapper';
 
 const FilterComponent = (props) => {
   const {
@@ -29,60 +27,56 @@ const FilterComponent = (props) => {
   const [showMoreFilters, setShowMorFilters] = useState(false);
 
   return (
-    <ContainerListFilter>
+    <FilterWrapper>
+      <ContainerColumn>
 
-      <ContainerTitle>
-        <FilterIcon />
-        <Title>Filtros</Title>
-      </ContainerTitle>
+        <ContainerDefaultFilters>
+          <ContainerContentCheckbox>
+            <ContainerCheckbox>
+              <FilterText>Suporte</FilterText>
+              <WrapperCheckbox>
+                <Checkbox text="Jeziel" />
+                <Checkbox text="Julio" />
+                <Checkbox text="Kaio" />
+              </WrapperCheckbox>
+            </ContainerCheckbox>
 
-      <ContainerContent>
-        <ContainerContentCheckbox>
-          <ContainerCheckbox>
-            <FilterText>Suporte</FilterText>
-            <WrapperCheckbox>
-              <Checkbox text="Jeziel" />
-              <Checkbox text="Julio" />
-              <Checkbox text="Kaio" />
-            </WrapperCheckbox>
-          </ContainerCheckbox>
+            <ContainerCheckbox>
+              <FilterText>Filtrar por plataforma</FilterText>
+              <WrapperCheckbox>
+                <Checkbox text="PS4" />
+                <Checkbox text="PS5" />
+              </WrapperCheckbox>
+            </ContainerCheckbox>
 
-          <ContainerCheckbox>
-            <FilterText>Filtrar por plataforma</FilterText>
-            <WrapperCheckbox>
-              <Checkbox text="PS4" />
-              <Checkbox text="PS5" />
-            </WrapperCheckbox>
-          </ContainerCheckbox>
+            <ContainerCheckbox>
+              <FilterText>Tipo de conta</FilterText>
+              <WrapperCheckbox>
+                <Checkbox text="Primário" />
+                <Checkbox text="Secundário" />
+              </WrapperCheckbox>
+            </ContainerCheckbox>
+          </ContainerContentCheckbox>
 
-          <ContainerCheckbox>
-            <FilterText>Tipo de conta</FilterText>
-            <WrapperCheckbox>
-              <Checkbox text="Primário" />
-              <Checkbox text="Secundário" />
-            </WrapperCheckbox>
-          </ContainerCheckbox>
-        </ContainerContentCheckbox>
+          <ContainerButtonSelect>
+            <Button>Marcar todos</Button>
+            <Button.Secondary>Desmarcar todos</Button.Secondary>
+          </ContainerButtonSelect>
+        </ContainerDefaultFilters>
 
-        <ContainerButtonSelect>
-          <Button>Marcar todos</Button>
-          <Button.Secondary>Desmarcar todos</Button.Secondary>
-        </ContainerButtonSelect>
+        <ContainerMoreFilters onClick={() => setShowMorFilters(!showMoreFilters)}>
+          <ContainerTitleMoreFilters>
+            <MoreFilterTitle>Mais filtros</MoreFilterTitle>
+            {showMoreFilters ? (
+              <IconArrowDown />
+            ) : (
+              <IconArrowRight />
+            )}
+          </ContainerTitleMoreFilters>
+        </ContainerMoreFilters>
+      </ContainerColumn>
 
-      </ContainerContent>
-
-      <ContainerMoreFilters onClick={() => setShowMorFilters(!showMoreFilters)}>
-        <ContainerTitleMoreFilters>
-          <MoreFilterTitle>Mais filtros</MoreFilterTitle>
-          {showMoreFilters ? (
-            <IconArrowDown />
-          ) : (
-            <IconArrowRight />
-          )}
-        </ContainerTitleMoreFilters>
-      </ContainerMoreFilters>
-
-    </ContainerListFilter>
+    </FilterWrapper>
   );
 };
 

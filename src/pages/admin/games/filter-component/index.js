@@ -1,17 +1,13 @@
 import React from 'react';
 
 import {
-  Container,
-  ContainerContent,
   ContainerLeftside,
   ContainerRightside,
-  ContainerTitle,
-  FilterIcon,
-  Title,
   Input,
 } from './styles';
 
 import SelectableSearch from '../../../../components/input-selectable-search';
+import FilterWrapper from '../../../../components/filter-wrapper';
 
 const Filter = () => {
   const testArrayAutocomplete = [
@@ -27,33 +23,24 @@ const Filter = () => {
   const onSearch = (value) => console.log(value);
 
   return (
-    <Container>
+    <FilterWrapper>
+      <ContainerLeftside>
+        <Search
+          placeholder="Pesquisar título do jogo"
+          onSearch={onSearch}
+          enterButton
+        />
+      </ContainerLeftside>
 
-      <ContainerTitle>
-        <FilterIcon />
-        <Title>Filtros</Title>
-      </ContainerTitle>
-
-      <ContainerContent>
-        <ContainerLeftside>
-          <Search
-            placeholder="Pesquisar título do jogo"
-            onSearch={onSearch}
-            enterButton
-          />
-        </ContainerLeftside>
-
-        <ContainerRightside>
-          <SelectableSearch
-            placeholder="Selecione as categorias"
-            options={testArrayAutocomplete}
-            multiple
-            width="90%"
-          />
-        </ContainerRightside>
-      </ContainerContent>
-
-    </Container>
+      <ContainerRightside>
+        <SelectableSearch
+          placeholder="Selecione as categorias"
+          options={testArrayAutocomplete}
+          multiple
+          width="90%"
+        />
+      </ContainerRightside>
+    </FilterWrapper>
   );
 };
 

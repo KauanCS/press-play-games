@@ -7,7 +7,7 @@ const CheckboxComponent = (props) => {
   const {
     text,
   } = props;
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   console.log(isActive);
 
