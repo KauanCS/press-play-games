@@ -16,11 +16,11 @@ const Routes = () => {
       <Router>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/cadastro" component={Cadastro} />
+          <Route privateRoute exact path="/cadastro" component={Cadastro} />
 
           <MenuWrapper>
-            <Route exact path="/pedidos" component={Pedidos} />
-            <Route exact path="/games" component={Games} />
+            <Route privateRoute exact path="/pedidos" component={Pedidos} />
+            <Route privateRoute exact path="/games" component={Games} />
           </MenuWrapper>
 
           <DefaultRoute render={() => <h1>{notFound}</h1>} />

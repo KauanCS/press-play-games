@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import LoginComponent from './login-input';
 import CostaMedicalLogo from '../../static/images/costa-medical-logo.png';
 import BackgroundLogin from '../../static/images/Background-login.jpg';
@@ -12,19 +12,19 @@ import {
   LogoImage,
 } from './styles';
 
+import { useUserContext } from '../../contexts/hooks/user';
+import api from '../../services/api';
+
 const Login = () => {
-  const [getMessage, setGetMessage] = useState('');
+  const history = useHistory();
+  const [user, setUser] = useUserContext();
+  console.log('users/login rendered');
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/home').then((response) => {
-      const { data } = response;
-      setGetMessage(data);
-    }).catch((error) => {
-      console.log('ERROR: ', error);
-    });
-  }, []);
-
-  console.log(getMessage);
+  const handlerLogin = async (values) => {
+    const response = await api.post('users/login', values);
+    console.log(response);
+    history.push('/home');
+  };
 
   return (
     <Container>
@@ -37,7 +37,7 @@ const Login = () => {
       </ContainerImageHeader>
 
       <ContainerBody>
-        <LoginComponent />
+        <LoginComponent submit={handlerLogin} />
       </ContainerBody>
     </Container>
   );

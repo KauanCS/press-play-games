@@ -1,55 +1,23 @@
-/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Route from 'react-router-dom/Route';
-import Redirect from 'react-router-dom/Redirect';
+import { Route, Redirect } from 'react-router-dom';
+import { useUserContext } from '../../contexts/hooks/user';
 
-const CustomRoute = (props) => {
-  const {
-    isAuthenticated,
-    isPublicRoute,
-    component: Component,
-    location,
-    ...rest
-  } = props;
+const CustomRoute = ({ privateRoute, ...rest }) => {
+  const { auth: singned } = useUserContext();
 
-  // useEffect((prevProps) => {
-  //   if (props.location !== prevProps.location) {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, []);
+  if (privateRoute && !singned) return (<Redirect to="/login" />);
 
-  return (
-    <Route
-      {...rest}
-      render={() => {
-        if (isAuthenticated && !isPublicRoute) {
-          return (
-            <Redirect
-              to={{
-                pathname: '/',
-                state: { from: props.location },
-              }}
-            />
-          );
-        }
-
-        return (<Component {...props} />);
-      }}
-    />
-  );
+  return (<Route {...rest} />);
 };
 
 CustomRoute.defaultProps = {
-  isPublicRoute: false,
+  privateRoute: false,
 };
 
 CustomRoute.propTypes = {
-  component: PropTypes.any.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  isPublicRoute: PropTypes.bool,
-  location: PropTypes.object.isRequired,
+  privateRoute: PropTypes.bool,
 };
 
 export default CustomRoute;
