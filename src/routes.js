@@ -5,9 +5,9 @@ import GlobalStyles from './styles/themes/global-styles';
 
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
-import Games from './pages/admin/games';
-import Clients from './pages/admin/clients';
-import Pedidos from './pages/admin/pedidos';
+import Games from './admin/pages/games';
+import Clients from './admin/pages/clients';
+import Pedidos from './admin/pages/pedidos';
 import MenuWrapper from './components/menu-wrapper';
 
 const Routes = () => {
@@ -17,9 +17,11 @@ const Routes = () => {
       <GlobalStyles />
       <Router>
         <Switch>
+          {/* Public Routes */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/cadastro" component={Cadastro} />
 
+          {/* Admin routes */}
           <MenuWrapper>
             <Route exact path="/pedidos" component={Pedidos} />
             <Route exact path="/games" component={Games} />
