@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'antd/dist/antd.css';
+import FontRussoOne from '../fonts/RussoOne-Regular.ttf';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -14,7 +15,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body, #root {
+    display: flex;
     height: 100%;
+    width: 100%;
     background-color: #fafafa;
     font-family: Roboto;
     color: #212121;
@@ -22,6 +25,11 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'Russo One Regular';
+    src: url(${FontRussoOne}) format('truetype');
   }
 
   ::-webkit-scrollbar {
