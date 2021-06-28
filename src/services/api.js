@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { BASE_URL } from '../config';
-import { useUserContext } from '../contexts/hooks/user';
 
 const api = axios.create({
   baseURL: BASE_URL,

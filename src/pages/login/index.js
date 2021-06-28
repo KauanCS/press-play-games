@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import LoginComponent from './login-input';
 import CostaMedicalLogo from '../../static/images/costa-medical-logo.png';
@@ -13,16 +13,22 @@ import {
 } from './styles';
 
 import { useUserContext } from '../../contexts/hooks/user';
-import api from '../../services/api';
+import { doLogin } from '../../services/user';
 
 const Login = () => {
   const history = useHistory();
   const [user, setUser] = useUserContext();
-  console.log('users/login rendered');
+  const [errors, setErrors] = useState([]);
 
   const handlerLogin = async (values) => {
-    const response = await api.post('users/login', values);
-    console.log(response);
+    const response = await doLogin(values);
+
+    if (response.status === 401) {
+      setErrors([{ message: response.data.message, type: 'error' }]);
+      return;
+    }
+
+    setUser({ ...user, auth: { token: response.data.token, signed: true } });
     history.push('/home');
   };
 
@@ -37,7 +43,7 @@ const Login = () => {
       </ContainerImageHeader>
 
       <ContainerBody>
-        <LoginComponent submit={handlerLogin} />
+        <LoginComponent submit={handlerLogin} errorsState={errors} />
       </ContainerBody>
     </Container>
   );

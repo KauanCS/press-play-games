@@ -15,7 +15,7 @@ const Routes = () => {
       <GlobalStyles />
       <Router>
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" unsignedRoute component={Login} />
           <Route privateRoute exact path="/cadastro" component={Cadastro} />
 
           <MenuWrapper>

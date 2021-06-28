@@ -12,6 +12,7 @@
     "antd": "^4.15.2",
     "axios": "^0.21.1",
     "craco-less": "^1.17.1",
+    "jose": "^3.5.1-experimental",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -32,7 +33,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "window": "readonly"
+    }
   },
   "browserslist": {
     "production": [

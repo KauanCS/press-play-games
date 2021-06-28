@@ -4,6 +4,7 @@ import {
   Form as AntForm,
   Button as AntButton,
   Checkbox as AntCheckbox,
+  Alert as AntAlert,
 } from 'antd';
 
 import {
@@ -40,6 +41,8 @@ export const ContainerLoginButton = styled.div`
 export const Link = styled.a`
   margin-top: 10px;
 `;
+
+export const Alert = styled(AntAlert)``;
 
 export const Form = styled(AntForm)``;
 

@@ -12,10 +12,15 @@ import {
   Button,
   Checkbox,
   Link,
+  Alert,
 } from './styles';
 
-const LoginComponent = ({ submit }) => (
+const LoginComponent = ({ submit, errorsState }) => (
   <Container>
+    <>
+      {errorsState.map(({ type, message }) => (<Alert key={message} message={message} type={type} />))}
+      <br />
+    </>
     <Form
       name="normal_login"
       className="login-form"
@@ -67,8 +72,13 @@ const LoginComponent = ({ submit }) => (
   </Container>
 );
 
+LoginComponent.defaultProps = {
+  errorsState: [],
+};
+
 LoginComponent.propTypes = {
   submit: PropTypes.func.isRequired,
+  errorsState: PropTypes.array,
 };
 
 export default LoginComponent;

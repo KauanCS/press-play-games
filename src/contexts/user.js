@@ -1,41 +1,45 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, {
+  createContext, useState, useEffect, useCallback,
+} from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 const initialState = {
-  user: {
-    preferences: {},
-    auth: {
-      token: '',
-      signed: false,
-    },
+  preferences: {},
+  auth: {
+    token: '',
+    signed: false,
   },
+  permissions: [],
 };
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  console.log('useEffect - context - UserProvider');
+  const getTokenClaims = useCallback((token) => {
+    if (!token) return [];
 
-  // eslint-disable-next-line no-undef
+    const [, payload] = _.split(token, '.');
+
+    const objectPayload = JSON.parse(atob(payload));
+
+    return objectPayload.role || [];
+  }, []);
+
+  const getUserPermissions = (_user) => ({ ..._user, permissions: getTokenClaims(_user.auth.token) });
+
   const userInitalValue = JSON.parse(window.localStorage.getItem('user')) || initialState;
-  const [user, setUser] = useState(userInitalValue);
 
-  console.log(`1: ${JSON.stringify(user)}`);
+  const [user, setUser] = useState(getUserPermissions(userInitalValue));
+
+  const handleSetUser = (_user) => setUser(getUserPermissions(_user));
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
     window.localStorage.setItem('user', JSON.stringify(user));
-
-    console.log(`2: ${JSON.stringify(user)}`);
   }, [user]);
 
-  const wrapperState = (val) => {
-    console.log('Opaaa....');
-    setUser(val);
-  };
-
   return (
-    <UserContext.Provider value={[user, wrapperState]}>
+    <UserContext.Provider value={[user, handleSetUser]}>
       {children}
     </UserContext.Provider>
   );
