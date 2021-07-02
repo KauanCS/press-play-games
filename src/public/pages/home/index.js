@@ -5,16 +5,13 @@ import {
 } from './styles';
 
 import Header from './components/header';
+import Carousels from './components/carousels';
 
-const HomePage = () => {
-  const title = 'this is my home page';
-
-  return (
-    <Container>
-      <Header />
-      {title}
-    </Container>
-  );
-};
+const HomePage = () => (
+  <Container>
+    <Header />
+    <Carousels />
+  </Container>
+);
 
 export default HomePage;
