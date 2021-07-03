@@ -35,13 +35,21 @@ const SecondaryCarousel = () => {
     <Container>
       <ContainerInside>
         <Carousel
+          additionalTransfrom={0}
           arrows={false}
-          ssr
           autoPlay
-          draggable={false}
+          autoPlaySpeed={1}
+          centerMode={false}
+          customTransition="all 3s linear"
+          draggable
+          focusOnSelect={false}
           infinite
-          partialVisbile
+          minimumTouchDrag={80}
           responsive={responsive}
+          showDots={false}
+          slidesToSlide={2}
+          swipeable
+          transitionDuration={3000}
         >
           <Image src={urlImage} />
           <Image src={urlImage} />

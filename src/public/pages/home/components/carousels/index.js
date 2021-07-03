@@ -7,15 +7,11 @@ import {
 import MainCarousel from './main-carousel';
 import SecondaryCarousel from './secondary-carousel';
 
-const Carousels = () => {
-  const title = 'aa';
-  return (
-    <Container>
-      <MainCarousel />
-      <SecondaryCarousel />
-      {title}
-    </Container>
-  );
-};
+const Carousels = () => (
+  <Container>
+    <MainCarousel />
+    <SecondaryCarousel />
+  </Container>
+);
 
 export default Carousels;

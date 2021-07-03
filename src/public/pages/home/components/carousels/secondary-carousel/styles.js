@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 export const ContainerInside = styled.div`
   position: absolute;
+  z-index: 10;
   flex: 1;
   width: 100vw;
   top: -120px;
