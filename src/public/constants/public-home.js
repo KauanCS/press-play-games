@@ -15,3 +15,21 @@ export const HOW_IT_WORKS_DESCRIPTION_STEP_1 = 'Temos 4 planos que se adequam ao
 export const HOW_IT_WORKS_DESCRIPTION_STEP_2 = 'Nosso catalogo conta com mais de 300 jogos de todos os gêneros.';
 
 export const HOW_IT_WORKS_DESCRIPTION_STEP_3 = 'O limite só depende de você, escolha o plano ideal para seu estilo de jogo.';
+
+export const ADVANTAGES_TITLE = 'E QUAIS AS VANTAGENS?';
+
+export const ADVANTAGE_TITLE_OPTION_1 = 'JOGUE SEM MEDO';
+
+export const ADVANTAGE_TITLE_OPTION_2 = 'ECONOMIA TOTAL';
+
+export const ADVANTAGE_TITLE_OPTION_3 = 'OS MELHORES JOGOS';
+
+export const ADVANTAGE_TITLE_OPTION_4 = 'JOGOS QUE NÃO ACABAM';
+
+export const ADVANTAGE_DESCRIPTION_OPTION_1 = 'Nós entendemos que as vezes nem tudo é como queremos, e que os jogos podem não vir daquele jeitinho, mas aqui é diferente, você aluga e testa, se não gostar, basta trocar, do contrário, é só continuar jogando sem medo.';
+
+export const ADVANTAGE_DESCRIPTION_OPTION_2 = 'Na Pressplay Games, VOCÊ escolhe o quanto vai pagar, temos planos acessíveis que cabem no seu bolso para que você não pare de jogar nem por um minuto.';
+
+export const ADVANTAGE_DESCRIPTION_OPTION_3 = 'Nosso catalogo está sempre acompanhando os melhores lançamentos para que você não fique por fora de nada.';
+
+export const ADVANTAGE_DESCRIPTION_OPTION_4 = 'Pensando no seu fluxo de jogos, montamos um catalogo que já conta com mais de 300 jogos, desde os clássicos até os lançamentos do mercado.';

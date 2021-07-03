@@ -39,6 +39,7 @@ export const Image = styled.img`
 export const Title = styled.h1`
   color: ${(props) => props.theme.color.white};
   font-size: 40px;
+  font-weight: 600;
 `;
 
 export const Subtitle = styled.h2`

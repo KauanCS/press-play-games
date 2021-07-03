@@ -33,6 +33,15 @@ export const BackgroundImage = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+`;
+
+export const Overlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: ${(props) => props.theme.color.black};
+  opacity: 0.8;
 `;
 
 export const Box = styled.div`

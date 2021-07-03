@@ -12,6 +12,7 @@ export default {
     publicTitleSecondary: '#FF2D69',
     publicAccentPrimary: '#00ddda',
     publicAccentSecondary: '#e80050',
+    publicBackgroundOverlay: '#4bbff196',
     backgroundTitleOrder: '#ea1e63',
     backgroundRemovedGame: '#f5c6cb',
     backgroundAddedGame: '#c3e6cb',

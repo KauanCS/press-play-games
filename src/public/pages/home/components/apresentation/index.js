@@ -15,6 +15,7 @@ import {
   IconGamepad,
   ImageGamer,
   Description,
+  Overlay,
 } from './styles';
 
 const IMAGE_URL = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/gamer-desenvolvimento-pressplaygames.jpg';
@@ -22,6 +23,7 @@ const IMAGE_URL = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/game
 const Apresentation = () => (
   <Container>
     <BackgroundImage>
+      <Overlay />
       <ContainerBox>
         <Box>
           <IconGamepad />
