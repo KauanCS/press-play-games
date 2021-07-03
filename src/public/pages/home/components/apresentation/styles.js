@@ -19,6 +19,7 @@ export const ContainerBox = styled.div`
   margin-top: 150px;
   justify-content: center;
   align-items: center;
+  padding-bottom: 40px;
 `;
 
 export const BackgroundImage = styled.div`

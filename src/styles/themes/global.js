@@ -2,6 +2,7 @@ export default {
   color: {
     accent: '#30c5a7',
     accentHover: '#228a80',
+    black: '#000',
     primary: '#262f3c',
     primaryDark: '#1a212b',
     publicPrimary: '#151F25',
