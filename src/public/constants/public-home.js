@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const APRESENTATION_DESCRIPTION = 'A Pressplay Games é especializada em alugueis de jogos das plataformas ps4 e ps5. Todos os nossos jogos são adquiridos de maneira legal diretamente da sony e o alugue é feito de forma totalmente digital. Facilitando assim a troca e devolução de jogos e tornando essencial a existência de uma conexão com a internet (para baixar os jogos).';
 
 export const APRESENTATION_TITLE = 'O QUE É A PRESSPLAY?​';
@@ -33,3 +34,125 @@ export const ADVANTAGE_DESCRIPTION_OPTION_2 = 'Na Pressplay Games, VOCÊ escolhe
 export const ADVANTAGE_DESCRIPTION_OPTION_3 = 'Nosso catalogo está sempre acompanhando os melhores lançamentos para que você não fique por fora de nada.';
 
 export const ADVANTAGE_DESCRIPTION_OPTION_4 = 'Pensando no seu fluxo de jogos, montamos um catalogo que já conta com mais de 300 jogos, desde os clássicos até os lançamentos do mercado.';
+
+export const WILL_PLAY_HOW_TITLE = 'VAI JOGAR COMO?';
+
+export const WILL_PLAY_HOW_SUBSCRIBE = 'Assinar Plano';
+
+export const WILL_PLAY_HOW_BASIC = {
+  title: 'BASIC',
+  subtitle: 'O Início da Jornada',
+  color: '#FF6A00',
+  subscribeType: [
+    {
+      type: 'Mensal',
+      price: 35,
+      gamesPerTime: 1,
+    },
+    {
+      type: 'Trimestral',
+      price: 35,
+      gamesPerTime: 3,
+    },
+    {
+      type: 'Semestral',
+      price: 35,
+      gamesPerTime: 3,
+    },
+    {
+      type: 'Anual',
+      price: 35,
+      gamesPerTime: 3,
+    },
+  ],
+  maxTrades: 3,
+  whereWillPlay: 'Jogue na conta da loja',
+  connectionType: 'Necessário conexão com a internet',
+  textFooter: '...e conhecer a felicidade 😀',
+};
+
+export const WILL_PLAY_HOW_BASIC_PLUS = {
+  title: 'BASIC PLUS',
+  subtitle: 'Para jogadores experiêntes',
+  color: '#F02C00',
+  subscribeType: [
+    {
+      type: 'Mensal',
+      price: '60',
+      gamesPerTime: 2,
+    },
+    {
+      type: 'Trimestral',
+      price: '60',
+      gamesPerTime: 6,
+    },
+    {
+      type: 'Semestral',
+      price: '60',
+      gamesPerTime: 6,
+    },
+    {
+      type: 'Anual',
+      price: '60',
+      gamesPerTime: 6,
+    },
+  ],
+  maxTrades: 6,
+  whereWillPlay: 'Jogue na conta da loja',
+  connectionType: 'Necessário conexão com internet',
+  textFooter: '...e descubra como avoar \o/',
+};
+
+export const WILL_PLAY_HOW_PREMIUM = {
+  title: 'PREMIUM',
+  subtitle: 'Para jogadores experiêntes',
+  color: '#00D2D2',
+  subscribeType: [
+    {
+      type: 'Trimestral',
+      price: '60',
+      gamesPerTime: 2,
+    },
+    {
+      type: 'Semestral',
+      price: '60',
+      gamesPerTime: 2,
+    },
+    {
+      type: 'Anual',
+      price: '60',
+      gamesPerTime: 2,
+    },
+  ],
+  maxTrades: 6,
+  whereWillPlay: 'Jogue na conta da loja',
+  connectionType: 'Necessário conexão com a internet',
+  textFooter: '...e descubra como avoar \o/',
+};
+
+export const WILL_PLAY_HOW_PREMIUM_PLUS = {
+  title: 'PREMIUM PLUS',
+  subtitle: 'Para jogadores experiêntes',
+  color: '#00D290',
+  subscribeType: [
+    {
+      type: 'Trimestral',
+      price: '60',
+      gamesPerTime: 2,
+    },
+    {
+      type: 'Semestral',
+      price: '60',
+      gamesPerTime: 2,
+    },
+    {
+      type: 'Anual',
+      price: '60',
+      gamesPerTime: 2,
+    },
+  ],
+  maxTrades: 6,
+  whereWillPlay: 'Jogue na conta da loja',
+  connectionType: 'Necessário conexão com a internet',
+  textFooter: '...e descubra como avoar \o/',
+};

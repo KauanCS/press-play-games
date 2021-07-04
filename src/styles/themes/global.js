@@ -19,6 +19,7 @@ export default {
     backgroundListGame: '#d1ecf1',
     backgroundButtonWhatsapp: '#00c727',
     backgroundButtonWhatsappHover: '#18b035',
+    grey: '#7A7A7A',
     textRemovedGame: '#721c24',
     textAddedGame: '#155724',
     textDescriptionApresentation: '#c6dcdd',
