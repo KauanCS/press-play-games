@@ -21,7 +21,8 @@ export const Container = styled.div`
 
 export const ContainerCards = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 20px
 `;
 
 export const BackgroundImage = styled.div`
@@ -56,7 +57,7 @@ export const Card = styled.div`
   position: relative;
   padding: 20px;
   border-radius: 8px;
-  max-width: 20%;
+  max-width: 15%;
 `;
 
 export const CardTitle = styled.h2`

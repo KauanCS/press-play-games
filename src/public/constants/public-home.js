@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-useless-escape */
 export const APRESENTATION_DESCRIPTION = 'A Pressplay Games é especializada em alugueis de jogos das plataformas ps4 e ps5. Todos os nossos jogos são adquiridos de maneira legal diretamente da sony e o alugue é feito de forma totalmente digital. Facilitando assim a troca e devolução de jogos e tornando essencial a existência de uma conexão com a internet (para baixar os jogos).';
 
@@ -156,3 +157,17 @@ export const WILL_PLAY_HOW_PREMIUM_PLUS = {
   connectionType: 'Necessário conexão com a internet',
   textFooter: '...e descubra como avoar \o/',
 };
+
+export const ASKS_TITLE = 'PERGUNTAS FREQUENTES';
+
+export const ASK_1_TITLE = 'COMO FUNCIONA?';
+
+export const ASK_2_TITLE = 'COMO FAÇO A INSTALAÇÃO?';
+
+export const ASK_3_TITLE = 'OS JOGOS SÃO ORIGINAIS?';
+
+export const ASK_4_TITLE = 'VER TODAS AS INFORÇÕES';
+
+export const ASK_5_TITLE = 'VÃO ME AUXILIAR DURANTE MINHA ASSINATURA?';
+
+export const ASK_6_TITLE = 'COM QUANTO TEMPO RECEBO OS DADOS DO JOGO?';

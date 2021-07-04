@@ -22,6 +22,7 @@
 		"react"
 	],
 	"rules": {
+		"max-len": ["error", 140],
 		"react/jsx-filename-extension": [
 			"error",
 			{
