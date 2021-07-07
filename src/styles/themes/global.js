@@ -8,6 +8,7 @@ export default {
     publicPrimary: '#151F25',
     publicPrimaryLight: '#303C48',
     publicPrimaryDark: '#212529',
+    publicFooterBottom: '#0E151A',
     publicTitlePrimary: '#2DF4FF',
     publicTitleSecondary: '#FF2D69',
     publicAccentPrimary: '#00ddda',

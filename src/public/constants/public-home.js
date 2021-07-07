@@ -171,3 +171,37 @@ export const ASK_4_TITLE = 'VER TODAS AS INFORÇÕES';
 export const ASK_5_TITLE = 'VÃO ME AUXILIAR DURANTE MINHA ASSINATURA?';
 
 export const ASK_6_TITLE = 'COM QUANTO TEMPO RECEBO OS DADOS DO JOGO?';
+
+export const FOOTER_CONTACT = 'CONTATO';
+
+export const FOOTER_WHATSAPP = 'GRUPO WHATSAPP';
+
+export const FOOTER_DISCORD = 'PRESSPLAY_DISCORD';
+
+export const FOOTER_EMAIL = 'GAMES@PRESSPLAY.COM.BR';
+
+export const FOOTER_FACEBOOK = 'PRESSPLAY GAMES FB';
+
+export const FOOTER_INSTAGRAM = '@PRESSPLAYGAMES';
+
+export const FOOTER_LIKE_PAGE = 'CURTA NOSSA PÁGINA';
+
+export const FOOTER_LINKS = 'LINKS ÚTEIS';
+
+export const FOOTER_HOW_IT_WORKS = 'COMO FUNCIONA?';
+
+export const FOOTER_INSTALLATION = 'COMO FAZER A INSTALAÇÃO?';
+
+export const FOOTER_PLANS_PRICE = 'QUAL O VALOR DAS ASSINATURAS?';
+
+export const FOOTER_FACEBOOK_SRC = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPressplaygames%2F&tabs&width=425&height=130&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId';
+
+export const FOOTER_FACEBOOK_LINK = 'https://www.facebook.com/Pressplaygames/';
+
+export const FOOTER_WHATSAPP_LINK = 'https://chat.whatsapp.com/I5cJaTYwHOmCUi4qmDsaMV';
+
+export const FOOTER_INSTAGRAM_LINK = 'https://www.instagram.com/pressplaygamesoficial/?fbclid=IwAR0L_55BMxb0SjeU12WqeJszooTQCdl78F9vQ-1kRvX8E2K3WcWWOFMwW-M';
+
+export const FOOTER_COPYRIGHT = 'Pressplay Games 2021. Todos os direitos reservados';
+
+export const FOOTER_DEVELOP_BY = 'Desenvolvido por PRESSPLAY – SOLUÇÕES EM MARKETING DIGITAL.';

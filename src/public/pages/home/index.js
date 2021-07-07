@@ -11,6 +11,7 @@ import HowItWorks from './components/how-it-works';
 import Advantages from './components/advantages';
 import WillPlayHow from './components/will-play-how';
 import Asks from './components/asks';
+import Footer from './components/footer';
 
 const HomePage = () => (
   <Container>
@@ -21,6 +22,7 @@ const HomePage = () => (
     <Advantages />
     <WillPlayHow />
     <Asks />
+    <Footer />
   </Container>
 );
 
