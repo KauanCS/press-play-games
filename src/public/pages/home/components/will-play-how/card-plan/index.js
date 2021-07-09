@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -36,13 +36,43 @@ const CardPlan = (props) => {
     color,
     subtitle,
     subscribeType,
-    maxTrades,
+    // maxTrades,
     whereWillPlay,
     connectionType,
     textFooter,
+    gamesPerTime,
   } = plan;
 
   const planInfo = _.find(subscribeType, (type) => type.type === _.capitalize(selectedPlan));
+
+  if (!planInfo) {
+    return (<> </>);
+  }
+
+  const createStructurePlan = () => {
+    const price = planInfo.pricePerMonth.split('.');
+    if (planInfo.type === 'Trimestral') {
+      return {
+        intPrice: price[0],
+        centsPrice: price[1],
+        tradesPerMonth: price.maxTrades / 3,
+      };
+    }
+    if (planInfo.type === 'Semestral') {
+      return {
+        intPrice: price[0],
+        centsPrice: price[1],
+        tradesPerMonth: price.maxTrades / 6,
+      };
+    }
+    return {
+      intPrice: price[0],
+      centsPrice: price[1],
+      tradesPerMonth: price.maxTrades / 12,
+    };
+  };
+
+  const structurePlan = useMemo(() => createStructurePlan(), []);
 
   return (
     <Container>
@@ -53,22 +83,22 @@ const CardPlan = (props) => {
 
       <ContainerContent>
         <ContainerPrice>
-          <TextPrice color={color}>R$</TextPrice>
-          <TextPriceValue color={color}>{planInfo.price}</TextPriceValue>
-          <TextPrice color={color}>00</TextPrice>
+          <TextPrice color={color}>12x</TextPrice>
+          <TextPriceValue color={color}>{structurePlan.intPrice}</TextPriceValue>
+          <TextPrice color={color}>{structurePlan.centsPrice}</TextPrice>
         </ContainerPrice>
-        <TextPlanType color={color}>{_.capitalize(selectedPlan)}</TextPlanType>
+        <TextPlanType color={color}>{`ou ${planInfo.totalPrice} por ano`}</TextPlanType>
 
         <ContainerItem>
           <IconGamepad />
-          <TextItem>{`${planInfo.gamesPerTime} jogo por vez`}</TextItem>
+          <TextItem>{`${gamesPerTime} jogo por vez`}</TextItem>
         </ContainerItem>
 
         <Divider />
 
         <ContainerItem>
           <IconExchange />
-          <TextItem>{`${maxTrades} trocas durante o mes`}</TextItem>
+          <TextItem>{`${structurePlan.tradesPerMonth} trocas durante o mes`}</TextItem>
         </ContainerItem>
 
         <Divider />
@@ -108,6 +138,7 @@ CardPlan.propTypes = {
     whereWillPlay: PropTypes.string,
     connectionType: PropTypes.string,
     textFooter: PropTypes.string,
+    gamesPerTime: PropTypes.number,
     subscribeType: PropTypes.arrayOf(PropTypes.shape({
       type: PropTypes.string,
       price: PropTypes.number,

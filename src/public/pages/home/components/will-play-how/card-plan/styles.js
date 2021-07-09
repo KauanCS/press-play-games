@@ -12,7 +12,7 @@ import { Divider as AntDivider } from 'antd';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 22%;
+  width: 250px;
   background-color: ${(props) => props.theme.color.white};
 `;
 
@@ -64,7 +64,7 @@ export const TextPriceValue = styled.span`
 
 export const TextPlanType = styled.span`
   color: ${(props) => props.color};
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
   margin-bottom: 28px;
 `;

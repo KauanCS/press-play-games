@@ -11,12 +11,18 @@ export const Container = styled.div`
   color: ${(props) => props.theme.color.white};
   justify-content: space-between;
   padding: 0 40px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const ContainerTextPhone = styled.div`
   display: flex;
   font-size: 16px;
   align-items: center;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    display: none;
+  }
 `;
 
 export const ContainerPhones = styled.div`

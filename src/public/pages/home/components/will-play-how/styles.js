@@ -15,13 +15,6 @@ export const Container = styled.div`
   gap: 20px;
 `;
 
-export const ContainerCardsPlan = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-`;
-
 export const ContainerButtons = styled.div`
   display: flex;
   justify-content: center;

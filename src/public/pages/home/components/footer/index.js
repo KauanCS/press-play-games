@@ -80,7 +80,7 @@ const Footer = () => (
           style={{ border: 'none', overflow: 'hidden' }}
           scrolling="no"
           frameBorder="0"
-          allowFullScreen="true"
+          allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
         />
       </ContainerMid>
