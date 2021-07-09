@@ -6,7 +6,6 @@ import {
   ContainerImage,
   IconLeftArrow,
   IconRightArrow,
-  Image,
 } from './styles';
 
 const URL_MILES_MORALES_IMAGE = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/banner3-desenvolvimento-pressplaygames.jpg';
@@ -29,15 +28,9 @@ const MainCarousel = () => {
         prevArrow={<IconLeftArrow />}
         nextArrow={<IconRightArrow />}
       >
-        <ContainerImage>
-          <Image src={URL_GOD_OF_WAR_IMAGE} alt="godOfWar" />
-        </ContainerImage>
-        <ContainerImage>
-          <Image src={URL_CRASH_IMAGE} alt="crash" />
-        </ContainerImage>
-        <ContainerImage>
-          <Image src={URL_MILES_MORALES_IMAGE} alt="milesMorales" />
-        </ContainerImage>
+        <ContainerImage position="right" imageUrl={URL_GOD_OF_WAR_IMAGE} />
+        <ContainerImage position="center" imageUrl={URL_CRASH_IMAGE} />
+        <ContainerImage position="right" imageUrl={URL_MILES_MORALES_IMAGE} />
       </Carousel>
     </Container>
   );

@@ -12,6 +12,10 @@ export const Container = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.color.publicPrimary};
   padding: 40px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    padding: 40px 0;
+    width: 100%;
+  }
 `;
 
 export const Box = styled.div`
@@ -21,6 +25,11 @@ export const Box = styled.div`
   border-radius: 8px;
   width: 80%;
   gap: 40px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    flex-direction: column;
+    width: 95%;
+    gap: 20px;
+  }
 `;
 
 export const ContainerItem = styled.div`
@@ -29,6 +38,9 @@ export const ContainerItem = styled.div`
   flex: 1;
   align-items: center;
   gap: 20px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    gap: 10px;
+  }
 `;
 
 export const Image = styled.img`
@@ -40,6 +52,9 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.color.white};
   font-size: 40px;
   font-weight: 600;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center
+  }
 `;
 
 export const Subtitle = styled.h2`

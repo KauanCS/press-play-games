@@ -10,6 +10,7 @@ import {
   ContainerRight,
   ContainerItemsRight,
   ContainerText,
+  FacebookFrame,
   Text,
   Title,
   IconWhatsapp,
@@ -72,11 +73,9 @@ const Footer = () => (
 
       <ContainerMid>
         <Title>{FOOTER_LIKE_PAGE}</Title>
-        <iframe
+        <FacebookFrame
           title="facebook-plugin"
           src={FOOTER_FACEBOOK_SRC}
-          width="425"
-          height="130"
           style={{ border: 'none', overflow: 'hidden' }}
           scrolling="no"
           frameBorder="0"

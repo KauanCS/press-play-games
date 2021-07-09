@@ -39,6 +39,10 @@ export const Collapse = styled(AntCollapse)`
     background-color: ${(props) => props.theme.color.publicPrimaryLight};
     border-radius: 0;
   }
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    width: 100%;
+  }
 `;
 
 export const TitleHeader = styled.h1`

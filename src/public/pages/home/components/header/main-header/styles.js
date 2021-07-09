@@ -6,7 +6,7 @@ import {
 
 export const IconBars = styled(FaBars)`
   display: none;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     font-size: 26px;
     display: flex;
     position: relative;
@@ -48,7 +48,7 @@ export const ContainerMenu = styled.div`
   background-color: ${(props) => props.theme.color.publicPrimaryDark};
   padding: 0 40px;
   justify-content: space-between;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     padding: 10px;
   }
 `;
@@ -58,7 +58,7 @@ export const ContainerTitle = styled.div`
   cursor: pointer;
   align-items: center;
   font-size: 18px;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     font-size: 12px;
   }
 `;
@@ -79,7 +79,7 @@ export const ContainerItem = styled.div`
       color: black;
     }
   }
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     display: none;
   }
 `;

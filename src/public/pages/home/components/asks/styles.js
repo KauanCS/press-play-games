@@ -26,4 +26,7 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.color.white};
   font-size: 40px;
   font-weight: 500;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;

@@ -12,6 +12,9 @@ export const Container = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    height: 700px;
+  }
 `;
 
 export const ContainerBox = styled.div`
@@ -58,6 +61,10 @@ export const Box = styled.div`
   gap: 20px;
   background-color: ${(props) => props.theme.color.publicPrimary};
   box-shadow: 0px 0px 25px 1px rgb(0 0 0 / 69%);
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    width: 95%;
+    height: 500px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -88,4 +95,7 @@ export const ImageGamer = styled.img`
   margin-left: -20px;
   position: relative;
   z-index: 0;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    display: none;
+  }
 `;

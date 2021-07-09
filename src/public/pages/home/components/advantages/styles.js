@@ -22,7 +22,11 @@ export const Container = styled.div`
 export const ContainerCards = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px
+  gap: 20px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -58,6 +62,12 @@ export const Card = styled.div`
   padding: 20px;
   border-radius: 8px;
   max-width: 15%;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    max-width: 95%;
+  }
+  @media only screen and (min-device-width : 769px) and (max-device-width : 1366px) {
+    max-width: 20%;
+  }
 `;
 
 export const CardTitle = styled.h2`
@@ -76,6 +86,9 @@ export const Title = styled.h1`
   position: relative;
   font-size: 40px;
   font-weight: 600;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;
 
 export const Divider = styled(AntiDivider)`

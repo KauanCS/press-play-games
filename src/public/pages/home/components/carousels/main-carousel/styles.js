@@ -37,10 +37,15 @@ export const Container = styled.div`
 export const ContainerImage = styled.div`
   display: flex;
   max-height: 85vh;
-`;
-
-export const Image = styled.img`
-  max-width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+  background-image: ${(props) => `url(${props.imageUrl})`};
+  background-size: cover;
+  background-position: ${(props) => props.position};
+  
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    height: 500px;
+  }
 `;
 
 export const Carousel = styled(AntCarousel)`

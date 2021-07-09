@@ -14,9 +14,9 @@ import {
 } from './styles';
 
 const HeaderComponent = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleOpenMenu = () => setIsMenuOpen(!isMenuOpen);
+  const handleOpenOrCloseMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <Container>
@@ -48,7 +48,7 @@ const HeaderComponent = () => {
             <MenuItem>Assinar</MenuItem>
           </ContainerItem>
 
-          <IconBars onClick={handleOpenMenu} />
+          <IconBars onClick={handleOpenOrCloseMenu} />
         </ContainerMenuItems>
       </ContainerMenu>
 
