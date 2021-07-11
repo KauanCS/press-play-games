@@ -52,6 +52,12 @@ const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: #606060; 
   }
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
 `;
 
 export default GlobalStyles;

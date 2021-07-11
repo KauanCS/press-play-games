@@ -40,6 +40,7 @@ export const ContainerPrice = styled.div`
 export const ContainerItem = styled.div`
   display: flex;
   color: ${(props) => props.theme.color.grey};
+  ${(props) => props.marginTop && 'margin-top: 28px;'};
 `;
 
 export const TextItem = styled.p`
@@ -66,7 +67,6 @@ export const TextPlanType = styled.span`
   color: ${(props) => props.color};
   font-size: 14px;
   line-height: 1;
-  margin-bottom: 28px;
 `;
 
 export const TextFooter = styled.span`

@@ -1,94 +1,67 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import { v4 } from 'uuid';
 
 import {
+  Carousel,
   Container,
   ContainerInside,
-  ContainerCardsPlan,
 } from './styles';
 
 import CardPlan from '../card-plan';
-
-import {
-  WILL_PLAY_HOW_BASIC,
-  WILL_PLAY_HOW_BASIC_PLUS,
-  WILL_PLAY_HOW_PREMIUM,
-  WILL_PLAY_HOW_PREMIUM_PLUS,
-} from '../../../../../constants/public-home';
-
-// import {
-//   WILL_PLAY_HOW_PS4_BRONZE,
-//   WILL_PLAY_HOW_PS4_SILVER,
-//   WILL_PLAY_HOW_PS4_PLATINUM,
-//   WILL_PLAY_HOW_PS4_GOLD,
-//   WILL_PLAY_HOW_PS4_DIAMOND,
-//   WILL_PLAY_HOW_PS4_SAPPHIRE,
-//   WILL_PLAY_HOW_PS5_BRONZE,
-//   WILL_PLAY_HOW_PS5_SILVER,
-//   WILL_PLAY_HOW_PS5_PLATINUM,
-//   WILL_PLAY_HOW_PS5_GOLD,
-//   WILL_PLAY_HOW_PS5_DIAMOND,
-//   WILL_PLAY_HOW_PS5_SAPPHIRE,
-// } from '../../../../../constants/plans';
 
 import PLANS from '../../../../../constants/plans';
 
 const CarouselPlans = (props) => {
   const {
-    selectedPlan,
-    selectedPlatform,
+    filter,
   } = props;
+
+  const [filteredPlans, setFilteredPlans] = useState([]);
+
+  useEffect(() => {
+    const mappedItems = PLANS.filter((x) => x.platform === filter.platform)
+      .reduce((acc, value) => {
+        const newobjects = value.subscribeType.map((x) => ({
+          ...x,
+          title: value.title,
+          color: value.color,
+          subtitle: value.subtitle,
+          whereWillPlay: value.whereWillPlay,
+          connectionType: value.connectionType,
+          textFooter: value.textFooter,
+          gamesPerTime: value.gamesPerTime,
+        }));
+
+        return [...acc, ...newobjects];
+      }, [])
+      .filter((x) => x.type === filter.subscribeType);
+    setFilteredPlans(mappedItems);
+  }, [filter]);
 
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
+      partialVisibilityGutter: 40,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
+      partialVisibilityGutter: 40,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 1,
+      partialVisibilityGutter: 40,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
+      partialVisibilityGutter: 40,
     },
   };
-
-  // const filterPlans = () => {
-  //   const filterByPlatform = PLANS.filter((plan) => plan.platform === selectedPlatform);
-  //   const filterByPeriod = filterByPlatform.map((plan) => plan.subscribeType.find((type) => type.type === selectedPlan));
-  //   return filterByPeriod;
-  // };
-
-  const filteredPlans = useMemo(() => PLANS.filter((plan) => plan.platform === selectedPlatform), []);
-
-  // console.log(filteredPlans);
-
-  if (selectedPlan === 'mensal') {
-    return (
-      <ContainerCardsPlan>
-        <CardPlan
-          plan={WILL_PLAY_HOW_BASIC}
-          selectedPlan={selectedPlan}
-        />
-        <CardPlan
-          plan={WILL_PLAY_HOW_BASIC_PLUS}
-          selectedPlan={selectedPlan}
-        />
-        <CardPlan
-          plan={WILL_PLAY_HOW_BASIC_PLUS}
-          selectedPlan={selectedPlan}
-        />
-      </ContainerCardsPlan>
-    );
-  }
 
   return (
     <Container>
@@ -96,8 +69,7 @@ const CarouselPlans = (props) => {
         <Carousel
           additionalTransfrom={0}
           arrows
-          autoPlaySpeed={3000}
-          centerMode
+          centerMode={false}
           className=""
           containerClass="container"
           dotListClass=""
@@ -116,8 +88,9 @@ const CarouselPlans = (props) => {
         >
           {filteredPlans.map((plan) => (
             <CardPlan
+              key={v4()}
               plan={plan}
-              selectedPlan={selectedPlan}
+              filter={filter}
             />
           ))}
         </Carousel>
@@ -127,8 +100,10 @@ const CarouselPlans = (props) => {
 };
 
 CarouselPlans.propTypes = {
-  selectedPlan: PropTypes.string.isRequired,
-  selectedPlatform: PropTypes.string.isRequired,
+  filter: PropTypes.shape({
+    platform: PropTypes.string,
+    subscribeType: PropTypes.string,
+  }).isRequired,
 };
 
 export default CarouselPlans;

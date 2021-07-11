@@ -8,4 +8,8 @@ export const Container = styled.div`
   color: white;
   flex-direction: column;
   overflow-x: hidden;
+  && .react-multi-carousel-item {
+    display: flex;
+    justify-content: center;
+  }
 `;

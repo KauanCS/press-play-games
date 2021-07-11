@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import {
   ButtonsPlanGroup,
+  ButtonsPlatformOption,
   ButtonsPlanOption,
   Container,
   ContainerButtons,
@@ -16,12 +17,14 @@ import {
 import CarouselPlans from './carousel';
 
 const WillPlayHow = () => {
-  const [selectedPlan, setSelectedPlan] = useState('Anual');
-  const [selectedPlatform, setSelectedPlatform] = useState('PS4');
+  const [filter, setFilter] = useState({
+    platform: 'PS4',
+    subscribeType: 'Mensal',
+  });
 
-  const handleSelectPlan = (event) => setSelectedPlan(event.target.value);
+  const handlePlatformChange = ({ target }) => setFilter({ ...filter, platform: target.value });
 
-  const handleSelectPlatform = (event) => setSelectedPlatform(event.target.value);
+  const handleSubscribeTypeChange = ({ target }) => setFilter({ ...filter, subscribeType: target.value });
 
   return (
     <Container>
@@ -30,22 +33,22 @@ const WillPlayHow = () => {
 
       <ContainerButtons>
         <ButtonsPlanGroup
-          defaultValue={selectedPlatform}
+          defaultValue={filter.platform}
           buttonStyle="solid"
           size="large"
-          onChange={handleSelectPlatform}
+          onChange={handlePlatformChange}
         >
-          <ButtonsPlanOption value="PS4">PS4</ButtonsPlanOption>
-          <ButtonsPlanOption value="PS5">PS5</ButtonsPlanOption>
+          <ButtonsPlatformOption value="PS4">PS4</ButtonsPlatformOption>
+          <ButtonsPlatformOption value="PS5">PS5</ButtonsPlatformOption>
         </ButtonsPlanGroup>
       </ContainerButtons>
 
       <ContainerButtons>
         <ButtonsPlanGroup
-          defaultValue={selectedPlan}
+          defaultValue={filter.subscribeType}
           buttonStyle="solid"
           size="large"
-          onChange={handleSelectPlan}
+          onChange={handleSubscribeTypeChange}
         >
           <ButtonsPlanOption value="Mensal">Mensal</ButtonsPlanOption>
           <ButtonsPlanOption value="Trimestral">Trimestral</ButtonsPlanOption>
@@ -55,8 +58,7 @@ const WillPlayHow = () => {
       </ContainerButtons>
 
       <CarouselPlans
-        selectedPlan={selectedPlan}
-        selectedPlatform={selectedPlatform}
+        filter={filter}
       />
 
     </Container>
