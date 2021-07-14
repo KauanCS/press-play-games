@@ -94,6 +94,9 @@ export const Text = styled.p`
   :hover {
     color: aqua;
   }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h1`

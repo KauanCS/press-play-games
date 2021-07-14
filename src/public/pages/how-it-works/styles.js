@@ -50,6 +50,10 @@ export const ContainerText = styled.div`
   ${(props) => props.end && (
     'align-items: flex-end;'
   )}
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const ContainerStar = styled.div`
@@ -57,6 +61,9 @@ export const ContainerStar = styled.div`
   flex: 1;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    display: none;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -92,12 +99,15 @@ export const TitleHeader = styled.h1`
 
 export const TitleExplanation = styled.h2`
   color: ${(props) => props.theme.color.white};
-  font-size: 30px;
+  font-size: 30px;  
 `;
 
 export const Subtitle = styled.h2`
   color: ${(props) => props.theme.color.publicTitlePrimary};
   margin-bottom: 15px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;
 
 export const Divider = styled(AntDivider)`
@@ -128,13 +138,27 @@ export const Divider = styled(AntDivider)`
       align-self: center;
       border-color: #313131;
     }`
-  )}  
+  )}
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    && > span {
+      font-size: 22px;
+    }
+    ${(props) => props.warning && (
+    `&& > span {
+      white-space: normal;
+    }`
+  )}
+  }
 `;
 
 export const TitleDescription = styled.p`
   color: ${(props) => props.theme.color.white};
   padding: 30px 0;
   font-size: 16px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;
 
 export const ItemList = styled.li`
@@ -162,7 +186,8 @@ export const Description = styled.p`
   color: ${(props) => props.theme.color.white};
   font-size: 16px;
   margin: 5px 0;
-  ${(props) => props.end && (
-    'text-align: end;'
-  )}
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    text-align: center;
+  }
 `;
