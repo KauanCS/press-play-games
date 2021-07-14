@@ -21,7 +21,7 @@ import {
 const IMAGE_URL = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/gamer-desenvolvimento-pressplaygames.jpg';
 
 const Apresentation = () => (
-  <Container>
+  <Container id="who_we_are_section">
     <BackgroundImage>
       <Overlay />
       <ContainerBox>

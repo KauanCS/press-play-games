@@ -7,8 +7,6 @@ import {
 import TopHeader from './top-header';
 import MainHeader from './main-header';
 
-// FIXME: DELETE THIS IF DONT BROKEN
-
 const HeaderComponent = () => (
   <Container>
     <TopHeader />

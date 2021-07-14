@@ -38,7 +38,7 @@ import {
   FOOTER_INSTAGRAM_LINK,
   FOOTER_COPYRIGHT,
   FOOTER_DEVELOP_BY,
-} from '../../../../constants/public-home';
+} from '../../constants/public-home';
 
 const Footer = () => (
   <Container>
