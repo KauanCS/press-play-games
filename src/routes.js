@@ -6,6 +6,7 @@ import GlobalStyles from './styles/themes/global-styles';
 import PublicWrapper from './public/components/public-wrapper';
 import Home from './public/pages/home';
 import HowItWorks from './public/pages/how-it-works';
+import Catalogue from './public/pages/catalogue';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
 
@@ -25,6 +26,7 @@ const Routes = () => {
           <PublicWrapper>
             <Route exact path="/" component={Home} />
             <Route exact path="/como-funciona" component={HowItWorks} />
+            <Route exact path="/catalogo" component={Catalogue} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/cadastro" component={Cadastro} />
           </PublicWrapper>

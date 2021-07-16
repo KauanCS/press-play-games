@@ -6,6 +6,7 @@ export default {
     backgroundButtonWhatsapp: '#00c727',
     backgroundButtonWhatsappHover: '#18b035',
     backgroundListGame: '#d1ecf1',
+    bacgroundCatalogueGame: '#1f3644',
     backgroundRemovedGame: '#f5c6cb',
     backgroundTitleOrder: '#ea1e63',
     black: '#000',
