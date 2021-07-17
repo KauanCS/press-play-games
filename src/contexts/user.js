@@ -10,6 +10,7 @@ const initialState = {
     token: '',
     signed: false,
   },
+  name: '',
   permissions: [],
 };
 
@@ -26,13 +27,15 @@ export const UserProvider = ({ children }) => {
     return objectPayload.role || [];
   }, []);
 
-  const getUserPermissions = (_user) => ({ ..._user, permissions: getTokenClaims(_user.auth.token) });
+  const getUserPermissions = useCallback((_user) => ({ ..._user, permissions: getTokenClaims(_user.auth.token) }), [getTokenClaims]);
 
   const userInitalValue = JSON.parse(window.localStorage.getItem('user')) || initialState;
 
   const [user, setUser] = useState(getUserPermissions(userInitalValue));
 
-  const handleSetUser = (_user) => setUser(getUserPermissions(_user));
+  const handleSetUser = useCallback((_user) => {
+    setUser(getUserPermissions(_user));
+  }, [getUserPermissions]);
 
   useEffect(() => {
     window.localStorage.setItem('user', JSON.stringify(user));

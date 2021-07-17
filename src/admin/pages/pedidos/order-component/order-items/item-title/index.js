@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from './styles';
 
-const ItemTitle = () => {
+const ItemTitle = (item) => {
   const user = 'ppg1111';
   const obsText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
@@ -20,33 +20,35 @@ const ItemTitle = () => {
   const handleClickCopyIcon = (e) => {
     e.stopPropagation();
   };
+  console.log('item', item);
 
+  const { userPlan, gamePlatformConsole: { platformConsole } } = item;
+
+  const [primaryContact] = userPlan.user.userContacts.filter((val) => val.isPrimary);
+  const userContact = primaryContact || userPlan.user.email;
+  debugger;
   return (
     <Container>
       <ContainerTitle>
         <Checkbox onClick={handleClickCheckBox} />
-        <Title>{user}</Title>
+        <Title>userPlan.user.username</Title>
       </ContainerTitle>
 
       <ContainerTitle>
-        <Title>Diamante</Title>
+        <Title>{userPlan.user.name}</Title>
       </ContainerTitle>
 
       <ContainerTitle>
-        <Title>PS4</Title>
+        <Title>{platformConsole.name}</Title>
       </ContainerTitle>
 
       <ContainerTitle bigSize>
-        <Title>+55 (16) 99999-9999</Title>
+        <Title>{userContact}</Title>
         <CopyIcon onClick={handleClickCopyIcon} />
       </ContainerTitle>
 
       <ContainerTitle>
         <Title>Julio</Title>
-      </ContainerTitle>
-
-      <ContainerTitle>
-        <Title>Kaio</Title>
       </ContainerTitle>
 
       <ContainerTitle bigSize>

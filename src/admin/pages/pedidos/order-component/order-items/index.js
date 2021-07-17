@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ArrowRightIcon,
@@ -9,8 +10,10 @@ import {
 import ItemTitle from './item-title';
 import ItemContent from './item-content';
 
-const OrderTitles = () => {
+const OrderContainer = ({ orders }) => {
   const { Panel } = Collapse;
+
+  console.log(orders);
 
   return (
     <Container>
@@ -20,18 +23,22 @@ const OrderTitles = () => {
         className="site-collapse-custom-collapse"
         expandIconPosition="right"
       >
-        <Panel header={ItemTitle()} key="1" className="site-collapse-custom-panel">
-          <ItemContent />
-        </Panel>
-        <Panel header={ItemTitle()} key="2" className="site-collapse-custom-panel">
-          <ItemContent />
-        </Panel>
-        <Panel header={ItemTitle()} key="3" className="site-collapse-custom-panel">
-          <ItemContent />
-        </Panel>
+        {orders.map((item) => (
+          <Panel header={ItemTitle(item)} key="1" className="site-collapse-custom-panel">
+            <ItemContent />
+          </Panel>
+        ))}
       </Collapse>
     </Container>
   );
 };
 
-export default OrderTitles;
+OrderContainer.defaultProps = {
+  orders: [],
+};
+
+OrderContainer.propTypes = {
+  orders: PropTypes.array,
+};
+
+export default OrderContainer;

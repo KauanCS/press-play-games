@@ -45,7 +45,7 @@
     "no-unused-vars": "warn",
     "no-debugger": "warn",
     "arrow-body-style": "warn",
-    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-props-no-spreading": "off",
     "no-console": "off", //REMOVER DEPOIS O.O
     "react/forbid-prop-types": "off",
     "max-len": [

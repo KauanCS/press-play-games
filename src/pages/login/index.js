@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import LoginComponent from './login-input';
 import CostaMedicalLogo from '../../static/images/costa-medical-logo.png';
 import BackgroundLogin from '../../static/images/Background-login.jpg';
+import Loading from '../../components/loading-component';
 
 import {
   BackgroundImage,
@@ -12,23 +13,26 @@ import {
   LogoImage,
 } from './styles';
 
-import { useUserContext } from '../../contexts/hooks/user';
+import { useUserContext } from '../../hooks/user';
 import { doLogin } from '../../services/user';
 
 const Login = () => {
   const history = useHistory();
   const [user, setUser] = useUserContext();
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handlerLogin = async (values) => {
+    setLoading(true);
     const response = await doLogin(values);
 
     if (response.status === 401) {
       setErrors([{ message: response.data.message, type: 'error' }]);
+      setLoading(false);
       return;
     }
 
-    setUser({ ...user, auth: { token: response.data.token, signed: true } });
+    setUser({ ...user, auth: { token: response.data.token, signed: true, name: response.data.name } });
     history.push('/home');
   };
 
@@ -43,7 +47,9 @@ const Login = () => {
       </ContainerImageHeader>
 
       <ContainerBody>
-        <LoginComponent submit={handlerLogin} errorsState={errors} />
+        <Loading loading={loading}>
+          <LoginComponent submit={handlerLogin} errorsState={errors} />
+        </Loading>
       </ContainerBody>
     </Container>
   );

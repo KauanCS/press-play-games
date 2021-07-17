@@ -1,19 +1,19 @@
 import axios from 'axios';
-import { BASE_URL } from '../config';
+import { BASE_URL, REQUEST_TIMEOUT } from '../config';
 
 const api = axios.create({
   baseURL: BASE_URL,
+  timeout: REQUEST_TIMEOUT,
 });
 
 api.interceptors.request.use((config) => {
-  // eslint-disable-next-line no-undef
   const user = JSON.parse(window.localStorage.getItem('user') || null);
 
   const requestConfig = {
     ...config,
     headers: {
+      ...config.headers,
       Authentication: user.auth && `Bearer ${user.auth.token}`,
-      'Content-Type': 'application/json',
     },
   };
 

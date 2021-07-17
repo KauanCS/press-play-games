@@ -36,9 +36,7 @@ const ItemContent = () => {
       <TextValidate>Vence em: 30/30/30</TextValidate>
       <ContainerHeaderGames>
         <TitleHeader bigSize>Game</TitleHeader>
-        <TitleHeader>Primária 1</TitleHeader>
-        <TitleHeader>Primária 2</TitleHeader>
-        <TitleHeader>Secundária</TitleHeader>
+        <TitleHeader>Conta</TitleHeader>
         <TitleHeader>E-mail</TitleHeader>
         <TitleHeader>Senha</TitleHeader>
       </ContainerHeaderGames>
@@ -46,21 +44,13 @@ const ItemContent = () => {
       <ContainerTradeGame>
         <ContainerRemovedGame>
           <ContainerFields bigSize>
-            <Tooltip title="Call of Duty Black Ops Cold War Conta 8">
-              <TextRemovedGame>Call of Duty Black Ops Cold War Conta 8</TextRemovedGame>
+            <Tooltip title="Call of Duty Black Ops Cold War">
+              <TextRemovedGame>Call of Duty Black Ops Cold War</TextRemovedGame>
             </Tooltip>
           </ContainerFields>
 
           <ContainerFields>
             <TextRemovedGame>Kaio</TextRemovedGame>
-          </ContainerFields>
-
-          <ContainerFields>
-            <TextRemovedGame>Julio</TextRemovedGame>
-          </ContainerFields>
-
-          <ContainerFields>
-            <TextRemovedGame>Jeziel</TextRemovedGame>
           </ContainerFields>
 
           <ContainerFields>
@@ -72,7 +62,6 @@ const ItemContent = () => {
           <ContainerFields>
             <TextRemovedGame>game123456</TextRemovedGame>
           </ContainerFields>
-
         </ContainerRemovedGame>
 
         <ContainerAddedGame>
@@ -85,21 +74,7 @@ const ItemContent = () => {
           <ContainerFields>
             <Select
               options={testArrayAutocomplete}
-              placeholder="Conta primária 1"
-            />
-          </ContainerFields>
-
-          <ContainerFields>
-            <Select
-              options={testArrayAutocomplete}
-              placeholder="Conta primária 2"
-            />
-          </ContainerFields>
-
-          <ContainerFields>
-            <Select
-              options={testArrayAutocomplete}
-              placeholder="Conta secundária"
+              placeholder="Conta"
             />
           </ContainerFields>
 

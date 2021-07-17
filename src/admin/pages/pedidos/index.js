@@ -13,15 +13,14 @@ const Pedidos = () => {
     { id: '1', name: 'Julio' },
     { id: '2', name: 'Jeziel' },
     { id: '3', name: 'Kaio' },
+    { id: '4', name: 'Kaio' },
+    { id: '5', name: 'Kaio' },
   ];
 
-  // const testArrayAutocomplete = [
-  //   { value: '1', label: 'A' },
-  //   { value: '2', label: 'B' },
-  //   { value: '3', label: 'C' },
-  //   { value: '4', label: 'D' },
-  //   { value: '5', label: 'E' },
-  // ];
+  const accountTypes = [
+    { id: '1', name: 'Primaria' },
+    { id: '2', name: 'Secundaria' },
+  ];
 
   return (
     <Container>

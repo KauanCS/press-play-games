@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { useUserContext } from '../../contexts/hooks/user';
+import { useUserContext } from '../../hooks/user';
 
 const CustomRoute = ({
   privateRoute, unsignedRoute, roles, ...rest
