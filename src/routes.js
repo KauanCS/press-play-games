@@ -7,6 +7,7 @@ import PublicWrapper from './public/components/public-wrapper';
 import Home from './public/pages/home';
 import HowItWorks from './public/pages/how-it-works';
 import Catalogue from './public/pages/catalogue';
+import Contact from './public/pages/contact';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
 
@@ -23,20 +24,17 @@ const Routes = () => {
       <Router>
         <Switch>
           {/* Public Routes */}
-          <PublicWrapper>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/como-funciona" component={HowItWorks} />
-            <Route exact path="/catalogo" component={Catalogue} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/cadastro" component={Cadastro} />
-          </PublicWrapper>
+          <Route exact path="/" component={Home} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/como-funciona" component={HowItWorks} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/catalogo" component={Catalogue} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/contato" component={Contact} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/login" component={Login} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/cadastro" component={Cadastro} isPublicRoute wrapper={PublicWrapper} />
 
           {/* Admin routes */}
-          <MenuWrapper>
-            <Route exact path="/pedidos" component={Pedidos} />
-            <Route exact path="/games" component={Games} />
-            <Route exact path="/clientes" component={Clients} />
-          </MenuWrapper>
+          <Route exact path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />
+          <Route exact path="/games" component={Games} wrapper={MenuWrapper} />
+          <Route exact path="/clientes" component={Clients} wrapper={MenuWrapper} />
 
           <DefaultRoute render={() => <h1>{notFound}</h1>} />
         </Switch>

@@ -10,6 +10,7 @@ const CustomRoute = (props) => {
     isAuthenticated,
     isPublicRoute,
     component: Component,
+    wrapper: Wrapper,
     location,
     ...rest
   } = props;
@@ -35,7 +36,11 @@ const CustomRoute = (props) => {
           );
         }
 
-        return (<Component {...props} />);
+        return (
+          <Wrapper>
+            <Component {...props} />
+          </Wrapper>
+        );
       }}
     />
   );
@@ -47,6 +52,7 @@ CustomRoute.defaultProps = {
 
 CustomRoute.propTypes = {
   component: PropTypes.any.isRequired,
+  wrapper: PropTypes.any.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   isPublicRoute: PropTypes.bool,
   location: PropTypes.object.isRequired,

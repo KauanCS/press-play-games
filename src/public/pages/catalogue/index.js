@@ -14,36 +14,33 @@ import {
 import CardComponent from './card-component';
 import FilterComponent from './filter-component';
 
-const Catalogue = () => {
-  const title = 'CATALOGO DE GAMES';
-  return (
-    <Container>
-      <BackgroundImage>
-        <Overlay />
-        <TitleHeader>{title}</TitleHeader>
-      </BackgroundImage>
+const Catalogue = () => (
+  <Container>
+    <BackgroundImage>
+      <Overlay />
+      <TitleHeader>CATALOGO DE GAMES</TitleHeader>
+    </BackgroundImage>
 
-      <ContainerContent>
-        <FilterComponent />
+    <ContainerContent>
+      <FilterComponent />
 
-        <ContainerGames>
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-        </ContainerGames>
-      </ContainerContent>
+      <ContainerGames>
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+      </ContainerGames>
+    </ContainerContent>
 
-      <ContainerBottom>
-        <Pagination
-          defaultCurrent={1}
-          total={280}
-          hideOnSinglePage
-          showSizeChanger={false}
-        />
-      </ContainerBottom>
+    <ContainerBottom>
+      <Pagination
+        defaultCurrent={1}
+        total={280}
+        hideOnSinglePage
+        showSizeChanger={false}
+      />
+    </ContainerBottom>
 
-    </Container>
-  );
-};
+  </Container>
+);
 
 export default Catalogue;

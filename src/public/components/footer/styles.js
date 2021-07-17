@@ -92,7 +92,7 @@ export const Text = styled.p`
   transition: 0.2s linear;
   margin: 0;
   :hover {
-    color: aqua;
+    color: ${(props) => props.theme.color.publicTitlePrimary};
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     text-align: center;
