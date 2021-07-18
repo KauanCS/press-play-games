@@ -64,14 +64,20 @@ export const ContainerSocialMedia = styled.div`
 `;
 
 export const ContainerMediaItem = styled.a`
-  display: flex;
-  color: ${(props) => props.theme.color.white};
-  :hover {
-      color: ${(props) => props.theme.color.publicTitlePrimary};
+  &&&& {
+    display: flex;
+    color: ${(props) => props.theme.color.white};
+    transition: 0.2s linear;
+    && > p {
+      transition: 0.2s linear;
     }
-  && > p{
     :hover {
       color: ${(props) => props.theme.color.publicTitlePrimary};
+      transition: 0.2s linear;
+      && > p {
+        color: ${(props) => props.theme.color.publicTitlePrimary};
+        transition: 0.2s linear;
+      }
     }
   }
 `;

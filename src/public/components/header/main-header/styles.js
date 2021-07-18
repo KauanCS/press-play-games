@@ -68,7 +68,7 @@ export const ContainerMenuItems = styled.div`
   display: flex;
 `;
 
-export const ContainerItem = styled.a`
+export const ContainerItem = styled.div`
   cursor: pointer;
   padding: 10px;
   display: flex;

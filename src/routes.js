@@ -8,7 +8,8 @@ import Home from './public/pages/home';
 import HowItWorks from './public/pages/how-it-works';
 import Catalogue from './public/pages/catalogue';
 import Contact from './public/pages/contact';
-import Login from './pages/login';
+import Login from './public/pages/login';
+import FAKELogin from './pages/login';
 import Cadastro from './pages/cadastro';
 
 import MenuWrapper from './components/menu-wrapper';

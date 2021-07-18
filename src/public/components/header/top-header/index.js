@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   ButtonLogin,
@@ -13,24 +14,29 @@ import {
 const firtPhone = '(41) 98882.4830';
 const secondPhone = '(41) 98882.4830';
 
-const TopHeader = () => (
-  <Container>
+const TopHeader = () => {
+  const history = useHistory();
+  const redirectToLogin = () => history.push('/login');
 
-    <ContainerPhones>
-      <ContainerTextPhone>
-        <IconWhatsapp />
-        <Text>{firtPhone}</Text>
-      </ContainerTextPhone>
-      <ContainerTextPhone>
-        <IconWhatsapp />
-        <Text>{secondPhone}</Text>
-      </ContainerTextPhone>
-    </ContainerPhones>
+  return (
+    <Container>
 
-    <ContainerLogin>
-      <ButtonLogin>LOGIN</ButtonLogin>
-    </ContainerLogin>
-  </Container>
-);
+      <ContainerPhones>
+        <ContainerTextPhone>
+          <IconWhatsapp />
+          <Text>{firtPhone}</Text>
+        </ContainerTextPhone>
+        <ContainerTextPhone>
+          <IconWhatsapp />
+          <Text>{secondPhone}</Text>
+        </ContainerTextPhone>
+      </ContainerPhones>
+
+      <ContainerLogin onClick={() => redirectToLogin()}>
+        <ButtonLogin>LOGIN</ButtonLogin>
+      </ContainerLogin>
+    </Container>
+  );
+};
 
 export default TopHeader;

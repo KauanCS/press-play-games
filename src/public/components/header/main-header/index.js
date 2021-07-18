@@ -27,6 +27,8 @@ const HeaderComponent = () => {
 
   const redirectToCatalogue = () => history.push('/catalogo');
 
+  const redirectToContact = () => history.push('/contato');
+
   return (
     <Container>
 
@@ -49,7 +51,7 @@ const HeaderComponent = () => {
             <MenuItem>Catalogo</MenuItem>
           </ContainerItem>
 
-          <ContainerItem>
+          <ContainerItem onClick={() => redirectToContact()}>
             <MenuItem>Contato</MenuItem>
           </ContainerItem>
 
