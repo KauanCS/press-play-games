@@ -25,7 +25,7 @@ const OrderContainer = ({ orders }) => {
       >
         {orders.map((item) => (
           <Panel header={ItemTitle(item)} key="1" className="site-collapse-custom-panel">
-            <ItemContent />
+            <ItemContent orderId={item.id} />
           </Panel>
         ))}
       </Collapse>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ButtonPrimary,
@@ -23,7 +24,8 @@ import {
   Tooltip,
 } from './styles';
 
-const ItemContent = () => {
+const ItemContent = ({ orderId }) => {
+  debugger;
   const testArrayAutocomplete = [
     { value: '1', label: 'A' },
     { value: '2', label: 'B' },
@@ -111,6 +113,10 @@ const ItemContent = () => {
       </ContainerFooter>
     </Container>
   );
+};
+
+ItemContent.propTypes = {
+  orderId: PropTypes.number.isRequired,
 };
 
 export default ItemContent;

@@ -12,24 +12,32 @@ const OrderTitles = () => (
       <Title>Usuário</Title>
     </ContainerTitle>
 
-    <ContainerTitle>
-      <Title>Nome</Title>
+    <ContainerTitle size="0.2">
+      <Title>Troca</Title>
     </ContainerTitle>
 
-    <ContainerTitle>
-      <Title>Plataforma</Title>
+    <ContainerTitle size="1.5">
+      <Title>Jogo</Title>
     </ContainerTitle>
 
-    <ContainerTitle bigSize>
+    <ContainerTitle size="0.5">
+      <Title>Console</Title>
+    </ContainerTitle>
+
+    <ContainerTitle size="1.5">
       <Title>Contato</Title>
     </ContainerTitle>
 
-    <ContainerTitle>
-      <Title>Tipo de conta</Title>
+    <ContainerTitle size="1.5">
+      <Title>Observação</Title>
     </ContainerTitle>
 
-    <ContainerTitle bigSize>
-      <Title>Observação</Title>
+    <ContainerTitle>
+      <Title>Data</Title>
+    </ContainerTitle>
+
+    <ContainerTitle>
+      <Title>Hora</Title>
     </ContainerTitle>
 
     <ContainerTitle>

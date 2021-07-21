@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const ContainerTitle = styled.div`
   display: flex;
-  flex: ${({ bigSize }) => (bigSize ? '1.5' : '1')};
+  flex: ${({ size }) => (size || '1')};
   justify-content: center;
   align-items: baseline;
 `;
