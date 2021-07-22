@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useUserContext } from '../../hooks/user';
 
 const CustomRoute = ({
-  privateRoute, unsignedRoute, roles, ...rest
+  privateRoute, unsignedRoute, roles,
+  component: Component,
+  wrapper: Wrapper, ...rest
 }) => {
   const [{ auth: { signed }, permissions }] = useUserContext();
 
@@ -12,7 +14,11 @@ const CustomRoute = ({
 
   if (privateRoute && !signed) return (<Redirect to="/login" />);
 
-  return (<Route {...rest} />);
+  return (
+    <Wrapper>
+      <Component {...rest} />
+    </Wrapper>
+  );
 };
 
 CustomRoute.defaultProps = {
@@ -25,6 +31,8 @@ CustomRoute.propTypes = {
   privateRoute: PropTypes.bool,
   unsignedRoute: PropTypes.bool,
   roles: PropTypes.arrayOf(PropTypes.string),
+  component: PropTypes.any.isRequired,
+  wrapper: PropTypes.any.isRequired,
 };
 
 export default CustomRoute;

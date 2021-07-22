@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  Checkbox,
   Container,
   ContainerTitle,
   Title,
@@ -9,35 +10,32 @@ import {
 const OrderTitles = () => (
   <Container>
     <ContainerTitle>
+      <Checkbox />
       <Title>Usuário</Title>
     </ContainerTitle>
 
-    <ContainerTitle size="0.2">
-      <Title>Troca</Title>
+    <ContainerTitle>
+      <Title>Plano</Title>
     </ContainerTitle>
 
-    <ContainerTitle size="1.5">
-      <Title>Jogo</Title>
+    <ContainerTitle>
+      <Title>Plataforma</Title>
     </ContainerTitle>
 
-    <ContainerTitle size="0.5">
-      <Title>Console</Title>
+    <ContainerTitle bigSize>
+      <Title>Telefone</Title>
     </ContainerTitle>
 
-    <ContainerTitle size="1.5">
-      <Title>Contato</Title>
+    <ContainerTitle>
+      <Title>Primária 1</Title>
     </ContainerTitle>
 
-    <ContainerTitle size="1.5">
+    <ContainerTitle>
+      <Title>Primária 2</Title>
+    </ContainerTitle>
+
+    <ContainerTitle bigSize>
       <Title>Observação</Title>
-    </ContainerTitle>
-
-    <ContainerTitle>
-      <Title>Data</Title>
-    </ContainerTitle>
-
-    <ContainerTitle>
-      <Title>Hora</Title>
     </ContainerTitle>
 
     <ContainerTitle>

@@ -13,8 +13,6 @@ import ItemContent from './item-content';
 const OrderContainer = ({ orders }) => {
   const { Panel } = Collapse;
 
-  console.log(orders);
-
   return (
     <Container>
       <Collapse

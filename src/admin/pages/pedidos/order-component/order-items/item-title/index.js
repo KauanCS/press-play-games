@@ -9,9 +9,10 @@ import {
   Tooltip,
 } from './styles';
 
-import { formatTime } from '../../../../../../utils/time';
+const ItemTitle = () => {
+  const user = 'ppg1111';
+  const obsText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
-const ItemTitle = (item) => {
   const handleClickCheckBox = (e) => {
     e.stopPropagation();
   };
@@ -19,59 +20,43 @@ const ItemTitle = (item) => {
   const handleClickCopyIcon = (e) => {
     e.stopPropagation();
   };
-  console.log('item', item);
-
-  const {
-    userPlan,
-    gamePlatformConsole: {
-      platformConsole,
-      game,
-    },
-    userSchedule,
-    ...order
-  } = item;
-
-  const mainContact = userPlan.user.userContacts.find((val) => val.isPrimary);
-  const userContact = mainContact || userPlan.user.email;
 
   return (
     <Container>
       <ContainerTitle>
-        <Title>{userPlan.user.username}</Title>
+        <Checkbox onClick={handleClickCheckBox} />
+        <Title>{user}</Title>
       </ContainerTitle>
 
-      <ContainerTitle size="0.2">
-        <Checkbox checked={order.rentReturn} />
+      <ContainerTitle>
+        <Title>Diamante</Title>
       </ContainerTitle>
 
-      <ContainerTitle size="1.5">
-        <Title>{game.name}</Title>
+      <ContainerTitle>
+        <Title>PS4</Title>
       </ContainerTitle>
 
-      <ContainerTitle size="0.5">
-        <Title>{platformConsole.name}</Title>
+      <ContainerTitle bigSize>
+        <Title>+55 (16) 99999-9999</Title>
+        <CopyIcon onClick={handleClickCopyIcon} />
       </ContainerTitle>
 
-      <ContainerTitle size="1.5">
-        <Title>{userContact}</Title>
+      <ContainerTitle>
+        <Title>Julio</Title>
       </ContainerTitle>
 
-      <ContainerTitle size="1.5">
-        <Tooltip title={order.note}>
-          <Title>{order.note}</Title>
+      <ContainerTitle>
+        <Title>Kaio</Title>
+      </ContainerTitle>
+
+      <ContainerTitle bigSize>
+        <Tooltip title={obsText}>
+          <Title>{obsText}</Title>
         </Tooltip>
       </ContainerTitle>
 
       <ContainerTitle>
-        <Title>{formatTime(userSchedule.dateSchedule, 'dd/MM/yyyy')}</Title>
-      </ContainerTitle>
-
-      <ContainerTitle>
-        <Title>{formatTime(userSchedule.startTime, 'HH:mm:ss')}</Title>
-      </ContainerTitle>
-
-      <ContainerTitle>
-        <Title>{userSchedule.user.username}</Title>
+        <Title>Kaio</Title>
       </ContainerTitle>
     </Container>
   );
