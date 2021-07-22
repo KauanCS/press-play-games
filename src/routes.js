@@ -9,8 +9,7 @@ import HowItWorks from './public/pages/how-it-works';
 import Catalogue from './public/pages/catalogue';
 import Contact from './public/pages/contact';
 import Login from './public/pages/login';
-import FAKELogin from './pages/login';
-import Cadastro from './pages/cadastro';
+import SignUp from './public/pages/sign-up';
 
 import MenuWrapper from './components/menu-wrapper';
 import Games from './admin/pages/games';
@@ -30,7 +29,7 @@ const Routes = () => {
           <Route exact path="/catalogo" component={Catalogue} isPublicRoute wrapper={PublicWrapper} />
           <Route exact path="/contato" component={Contact} isPublicRoute wrapper={PublicWrapper} />
           <Route exact path="/login" component={Login} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact path="/cadastro" component={Cadastro} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/cadastrar" component={SignUp} isPublicRoute wrapper={PublicWrapper} />
 
           {/* Admin routes */}
           <Route exact path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />

@@ -31,7 +31,7 @@ export const ContainerPhones = styled.div`
   padding: 10px;
 `;
 
-export const ContainerLogin = styled.div`
+export const ContainerItem = styled.div`
   cursor: pointer;
   padding: 10px;
   display: flex;
@@ -42,6 +42,11 @@ export const ContainerLogin = styled.div`
       color: black;
     }
   }
+`;
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export const Text = styled.p`

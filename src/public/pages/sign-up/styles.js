@@ -20,7 +20,7 @@ export const ContainerLogin = styled.div`
   background-color: rgba(0,0,0,0.5);
   width: 35%;
   align-items: center;
-  padding: 80px;
+  padding: 40px 80px;
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     width: 100%;
     padding: 40px;
@@ -31,7 +31,7 @@ export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 `;
 
 export const ContainerRight = styled.div`
@@ -77,7 +77,7 @@ export const TitleHeader = styled.h1`
   font-weight: 500;
   z-index: 1;
   font-size: 32px;
-  padding: 40px 0;
+  padding: 0 0 40px 0;
 `;
 
 export const Text = styled.p`

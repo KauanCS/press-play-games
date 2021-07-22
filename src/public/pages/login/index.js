@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   Button,
@@ -10,7 +11,6 @@ import {
   ContainerSignUp,
   BackgroundImage,
   KratosImage,
-  Overlay,
   Text,
   TextForgot,
   TextSignUp,
@@ -19,12 +19,13 @@ import {
 } from './styles';
 
 const Login = () => {
-  const title = 'FAZER LOGIN';
+  const history = useHistory();
+  const redirectToSignUp = () => history.push('/cadastrar');
   return (
     <Container>
       <BackgroundImage>
         <ContainerLogin>
-          <TitleHeader>{title}</TitleHeader>
+          <TitleHeader>FAZER LOGIN</TitleHeader>
           <ContainerInput>
             <Text>Nome do usuário ou e-mail*</Text>
             <Input placeholder="Insira seu usuário ou e-mail" />
@@ -41,7 +42,7 @@ const Login = () => {
 
           <ContainerSignUp>
             <Text>Não possui uma conta?</Text>
-            <TextSignUp>Registrar-se</TextSignUp>
+            <TextSignUp onClick={() => redirectToSignUp()}>Registrar-se</TextSignUp>
           </ContainerSignUp>
 
         </ContainerLogin>

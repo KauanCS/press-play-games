@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom';
 import {
   ButtonLogin,
   Container,
-  ContainerLogin,
+  ContainerButtons,
+  ContainerItem,
   ContainerTextPhone,
   ContainerPhones,
   IconWhatsapp,
@@ -17,6 +18,7 @@ const secondPhone = '(41) 98882.4830';
 const TopHeader = () => {
   const history = useHistory();
   const redirectToLogin = () => history.push('/login');
+  const redirectToSignUp = () => history.push('/cadastrar');
 
   return (
     <Container>
@@ -32,9 +34,15 @@ const TopHeader = () => {
         </ContainerTextPhone>
       </ContainerPhones>
 
-      <ContainerLogin onClick={() => redirectToLogin()}>
-        <ButtonLogin>LOGIN</ButtonLogin>
-      </ContainerLogin>
+      <ContainerButtons>
+        <ContainerItem onClick={() => redirectToSignUp()}>
+          <ButtonLogin>CADASTRAR</ButtonLogin>
+        </ContainerItem>
+        <ContainerItem onClick={() => redirectToLogin()}>
+          <ButtonLogin>LOGIN</ButtonLogin>
+        </ContainerItem>
+      </ContainerButtons>
+
     </Container>
   );
 };
