@@ -25,7 +25,6 @@ import {
 } from './styles';
 
 const ItemContent = ({ orderId }) => {
-  debugger;
   const testArrayAutocomplete = [
     { value: '1', label: 'A' },
     { value: '2', label: 'B' },

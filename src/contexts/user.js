@@ -34,7 +34,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(getUserPermissions(userInitalValue));
 
   const handleSetUser = useCallback((_user) => {
-    setUser(getUserPermissions(_user));
+    setUser(getUserPermissions(_user || initialState));
   }, [getUserPermissions]);
 
   useEffect(() => {

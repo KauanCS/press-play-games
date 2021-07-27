@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import {
   Input as AntInput,
   Checkbox as AntCheckbox,
+  Form as AntForm,
+  Alert as AntAlert,
 } from 'antd';
 
-import CustomButton from '../../../components/custom-button';
+import CustomButton from '../../../../../components/custom-button';
 
 const urlBackground = 'https://pressplaygames.com.br/wp-content/uploads/2021/05/thumb2-winter-landscape-forest-snow-winter-snow-capped-trees.jpg';
 const urlKratos = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/0c4e07962725fd52bb0eecc8c68b1301.png';
@@ -14,13 +16,17 @@ export const Container = styled.div`
   display: flex;
 `;
 
+export const Form = styled(AntForm)``;
+
+export const Alert = styled(AntAlert)``;
+
 export const ContainerLogin = styled.div`
   display: flex;
   flex-direction: column;
   background-color: rgba(0,0,0,0.5);
   width: 35%;
   align-items: center;
-  padding: 80px;
+  padding: 40px 80px;
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     width: 100%;
     padding: 40px;
@@ -31,7 +37,7 @@ export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 `;
 
 export const ContainerRight = styled.div`
@@ -77,7 +83,7 @@ export const TitleHeader = styled.h1`
   font-weight: 500;
   z-index: 1;
   font-size: 32px;
-  padding: 40px 0;
+  padding: 0 0 40px 0;
 `;
 
 export const Text = styled.p`
@@ -85,6 +91,10 @@ export const Text = styled.p`
 `;
 
 export const Input = styled(AntInput)``;
+
+export const Link = styled.a`
+  margin-top: 10px;
+`;
 
 export const Checkbox = styled(AntCheckbox)`
   align-self: flex-start;

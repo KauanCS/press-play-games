@@ -10,7 +10,7 @@ const CustomRoute = ({
 }) => {
   const [{ auth: { signed }, permissions }] = useUserContext();
 
-  if (unsignedRoute && signed) return (<Redirect to="/home" />);
+  if (unsignedRoute && signed) return (<Redirect to="/" />);
 
   if (privateRoute && !signed) return (<Redirect to="/login" />);
 
