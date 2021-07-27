@@ -12,6 +12,7 @@ import {
   TitleGames,
   MenuItem,
   IconBars,
+  IconCart,
 } from './styles';
 
 const HeaderComponent = () => {
@@ -28,6 +29,8 @@ const HeaderComponent = () => {
   const redirectToCatalogue = () => history.push('/catalogo');
 
   const redirectToContact = () => history.push('/contato');
+
+  const redirectToCart = () => history.push('/carrinho');
 
   return (
     <Container>
@@ -57,6 +60,10 @@ const HeaderComponent = () => {
 
           <ContainerItem>
             <MenuItem>Assinar</MenuItem>
+          </ContainerItem>
+
+          <ContainerItem onClick={() => redirectToCart()}>
+            <IconCart />
           </ContainerItem>
 
           <IconBars onClick={handleOpenOrCloseMenu} />
