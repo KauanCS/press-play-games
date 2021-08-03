@@ -28,6 +28,9 @@ const Catalogue = () => (
         <CardComponent />
         <CardComponent />
         <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
       </ContainerGames>
     </ContainerContent>
 

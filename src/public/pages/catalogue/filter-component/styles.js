@@ -16,9 +16,22 @@ export const ContainerLeftside = styled.div`
   }
 `;
 
+export const ContainerRow = styled.div`
+  display: flex;
+  gap: 20px;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    flex-direction: column;
+  }
+`;
+
 export const ContainerItemFilter = styled.div`
   display: flex;
   margin-top: 10px;
+  width: 50%;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    flex-direction: ${(props) => !props.responsiveRow && 'column'};
+    width: 100%;
+  }
 `;
 
 export const ContainerSearchFilter = styled.div`
@@ -33,7 +46,15 @@ export const Input = styled(AntInput)``;
 
 export const Checkbox = styled(AntCheckbox)``;
 
-export const Switch = styled(AntSwitch)``;
+export const CheckboxGroup = styled(AntCheckbox.Group)`
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    display: flex;
+  }
+`;
+
+export const Switch = styled(AntSwitch)`
+  max-width: 50px;
+`;
 
 export const Label = styled.p`
   color: ${(props) => props.theme.color.white};

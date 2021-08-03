@@ -4,8 +4,10 @@ import {
   ContainerLeftside,
   ContainerSearchFilter,
   ContainerItemFilter,
+  ContainerRow,
   Input,
   Checkbox,
+  CheckboxGroup,
   Label,
   Switch,
 } from './styles';
@@ -14,6 +16,7 @@ import SelectableSearch from '../../../../components/input-selectable-search';
 import FilterWrapper from '../../../../components/filter-wrapper';
 
 const PLATFORM_OPTIONS = ['PS4', 'PS5'];
+const ACCOUNT_OPTIONS = ['Primária', 'Secundária'];
 
 const Filter = () => {
   const testArrayAutocomplete = [
@@ -46,16 +49,27 @@ const Filter = () => {
           />
         </ContainerSearchFilter>
 
-        <ContainerItemFilter>
-          <Label>Plataforma: </Label>
+        <ContainerRow>
+          <ContainerItemFilter>
+            <Label>Plataforma: </Label>
 
-          <Checkbox.Group
-            options={PLATFORM_OPTIONS}
-            defaultValue={['PS4', 'PS5']}
-          />
-        </ContainerItemFilter>
+            <CheckboxGroup
+              options={PLATFORM_OPTIONS}
+              defaultValue={['PS4', 'PS5']}
+            />
+          </ContainerItemFilter>
 
-        <ContainerItemFilter>
+          <ContainerItemFilter>
+            <Label>Tipo de conta: </Label>
+
+            <CheckboxGroup
+              options={ACCOUNT_OPTIONS}
+              defaultValue={['Primária', 'Secundária']}
+            />
+          </ContainerItemFilter>
+        </ContainerRow>
+
+        <ContainerItemFilter responsiveRow>
           <Label>Mostrar apenas disponíveis: </Label>
 
           <Switch defaultChecked />
