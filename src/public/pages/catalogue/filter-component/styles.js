@@ -44,8 +44,6 @@ export const ContainerSearchFilter = styled.div`
 
 export const Input = styled(AntInput)``;
 
-export const Checkbox = styled(AntCheckbox)``;
-
 export const CheckboxGroup = styled(AntCheckbox.Group)`
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     display: flex;

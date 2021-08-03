@@ -6,7 +6,6 @@ import {
   ContainerItemFilter,
   ContainerRow,
   Input,
-  Checkbox,
   CheckboxGroup,
   Label,
   Switch,
