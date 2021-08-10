@@ -27,7 +27,7 @@ const WillPlayHow = () => {
   const handleSubscribeTypeChange = ({ target }) => setFilter({ ...filter, subscribeType: target.value });
 
   return (
-    <Container>
+    <Container id="plans_section">
       <Title>{WILL_PLAY_HOW_TITLE}</Title>
       <IconGamepad />
 

@@ -10,6 +10,7 @@ import Catalogue from './public/pages/catalogue';
 import Contact from './public/pages/contact';
 import Login from './public/pages/login';
 import SignUp from './public/pages/sign-up';
+import Cart from './public/pages/cart';
 
 import MenuWrapper from './components/menu-wrapper';
 import Games from './admin/pages/games';
@@ -24,12 +25,14 @@ const Routes = () => {
       <Router>
         <Switch>
           {/* Public Routes */}
-          <Route exact path="/" component={Home} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact path="/como-funciona" component={HowItWorks} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact path="/catalogo" component={Catalogue} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact path="/contato" component={Contact} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact unsignedRoute path="/login" component={Login} isPublicRoute wrapper={PublicWrapper} />
-          <Route exact unsignedRoute path="/cadastrar" component={SignUp} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/" component={Home} wrapper={PublicWrapper} />
+          <Route exact path="/como-funciona" component={HowItWorks} wrapper={PublicWrapper} />
+          <Route exact path="/catalogo" component={Catalogue} wrapper={PublicWrapper} />
+          <Route exact path="/contato" component={Contact} wrapper={PublicWrapper} />
+          <Route exact unsignedRoute path="/login" component={Login} wrapper={PublicWrapper} />
+          <Route exact unsignedRoute path="/cadastrar" component={SignUp} wrapper={PublicWrapper} />
+
+          <Route exact privateRoute path="/carrinho" component={Cart} wrapper={PublicWrapper} />
 
           {/* Admin routes */}
           <Route exact privateRoute path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />

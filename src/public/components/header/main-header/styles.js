@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {
   FaBars,
+  FaShoppingCart,
 } from 'react-icons/fa';
 
 export const IconBars = styled(FaBars)`
@@ -11,6 +12,12 @@ export const IconBars = styled(FaBars)`
     display: flex;
     position: relative;
   }
+`;
+
+export const IconCart = styled(FaShoppingCart)`
+  font-size: 26px;
+  display: flex;
+  position: relative;
 `;
 
 export const Container = styled.div`
