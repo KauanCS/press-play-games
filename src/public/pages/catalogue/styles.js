@@ -11,16 +11,16 @@ export const Container = styled.div`
 
 export const ContainerGames = styled.div`
   display: flex;
-  flex-direction: column;
   width: 100%;
-  gap: 20px;
+  gap: 18px;
   margin: 20px 0;
+  flex-wrap: wrap;
 `;
 
 export const ContainerContent = styled.div`
   display: flex;
-  width: 60%;
-  margin-top: 20px;
+  max-width: 1000px;
+  margin: 20px;
   flex-direction: column;
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     width: 95%;
@@ -75,4 +75,7 @@ export const TitleHeader = styled.h1`
   z-index: 1;
   font-size: 35px;
   padding: 40px 0;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    font-size: 34px;
+  }
 `;
