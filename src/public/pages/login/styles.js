@@ -2,7 +2,9 @@
 import styled from 'styled-components';
 import {
   Input as AntInput,
+  Form as AntForm,
   Checkbox as AntCheckbox,
+  Alert as AntAlert,
 } from 'antd';
 
 import CustomButton from '../../../components/custom-button';
@@ -84,6 +86,8 @@ export const Text = styled.p`
   margin: 0;
 `;
 
+export const Form = styled(AntForm)``;
+
 export const Input = styled(AntInput)``;
 
 export const Checkbox = styled(AntCheckbox)`
@@ -109,3 +113,5 @@ export const TextSignUp = styled.a`
   font-weight: 500;
   margin-left: 5px;
 `;
+
+export const Alert = styled(AntAlert)``;
