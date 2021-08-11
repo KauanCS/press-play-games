@@ -1,7 +1,13 @@
 import styled from 'styled-components';
+import {
+  Menu as AntMenu,
+  Dropdown as AntDropdown,
+} from 'antd';
 
 import {
   FaWhatsapp,
+  FaSortDown,
+  FaUserAlt,
 } from 'react-icons/fa';
 
 export const Container = styled.div`
@@ -44,6 +50,14 @@ export const ContainerItem = styled.div`
   }
 `;
 
+export const ContainerUser = styled.div`
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+`;
+
 export const ContainerButtons = styled.div`
   display: flex;
   gap: 10px;
@@ -64,4 +78,24 @@ export const ButtonLogin = styled.a`
   font-size: 16px;
   color: ${(props) => props.theme.color.white};
   font-weight: 500;
+`;
+
+export const IconDown = styled(FaSortDown)`
+  align-self: flex-start;
+`;
+
+export const IconUser = styled(FaUserAlt)``;
+
+export const Menu = styled(AntMenu)``;
+
+export const Dropdown = styled(AntDropdown)``;
+
+export const TextUser = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  color: ${(props) => props.theme.color.white};
+  margin: 0;
+  gap: 10px;
+  display: flex;
+  align-items: baseline;
 `;

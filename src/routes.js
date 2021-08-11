@@ -11,6 +11,8 @@ import Contact from './public/pages/contact';
 import Login from './public/pages/login';
 import SignUp from './public/pages/sign-up';
 import Cart from './public/pages/cart';
+import MyAccount from './public/pages/my-account';
+import Historic from './public/pages/historic';
 
 import MenuWrapper from './components/menu-wrapper';
 import Games from './admin/pages/games';
@@ -32,6 +34,8 @@ const Routes = () => {
           <Route exact path="/login" component={Login} isPublicRoute wrapper={PublicWrapper} />
           <Route exact path="/cadastrar" component={SignUp} isPublicRoute wrapper={PublicWrapper} />
           <Route exact path="/carrinho" component={Cart} isPublicRoute wrapper={PublicWrapper} />
+          <Route exact path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
+          <Route exact path="/historico" component={Historic} wrapper={PublicWrapper} />
 
           {/* Admin routes */}
           <Route exact path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />
