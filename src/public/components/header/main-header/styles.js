@@ -84,13 +84,13 @@ export const MenuItem = styled.a`
 
 export const TitlePressPlay = styled.h2`
   color: ${(props) => props.theme.color.publicTitlePrimary};
-  font-family: 'Russo One Regular';
+  font-family: 'Russo One';
   margin-right: 5px;
 `;
 
 export const TitleGames = styled.h2`
   color: ${(props) => props.theme.color.publicTitleSecondary};
-  font-family: 'Russo One Regular';
+  font-family: 'Russo One';
 `;
 
 export const NotificationBox = styled.div`

@@ -42,17 +42,19 @@ const ModalLock = (props) => {
         />
       </ContainerVideo>
       <ContainerDescription>
-        <Description>1- Acesse o perfil do ufc 4</Description>
-        <Description>2- Configurações &gt; Gerenciamento de conta &gt; Iniciar sessão.</Description>
-        <Description>Nova Senha: game1010</Description>
-        <Description>3- Configurações &gt; Gerenciamento da conta &gt; Ativar como seu PS4 principal &gt; alternar &gt; ativar</Description>
-        <Description>4- Configurações &gt; Gerenciamento da conta &gt; finalizar a sessao</Description>
         <Checkbox
           value={checkboxValue}
           onChange={handleCheckboxValue}
         >
           Confirmo que vi o video e desejo continuar.
         </Checkbox>
+      </ContainerDescription>
+      <ContainerDescription>
+        <Description>1- Acesse o perfil do ufc 4</Description>
+        <Description>2- Configurações &gt; Gerenciamento de conta &gt; Iniciar sessão.</Description>
+        <Description>Nova Senha: game1010</Description>
+        <Description>3- Configurações &gt; Gerenciamento da conta &gt; Ativar como seu PS4 principal &gt; alternar &gt; ativar</Description>
+        <Description>4- Configurações &gt; Gerenciamento da conta &gt; finalizar a sessao</Description>
       </ContainerDescription>
     </Modal>
   );
