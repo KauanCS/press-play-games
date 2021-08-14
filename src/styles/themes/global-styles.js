@@ -18,14 +18,13 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     width: 100%;
     background-color: #fafafa;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     color: #212121;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     font-weight: 400;
   }
-
 
   ::-webkit-scrollbar {
     width: 8px;

@@ -11,8 +11,10 @@ import {
   TitlePressPlay,
   TitleGames,
   MenuItem,
+  NotificationBox,
   IconBars,
   IconCart,
+  WrapperCart,
 } from './styles';
 
 const HeaderComponent = () => {
@@ -63,7 +65,10 @@ const HeaderComponent = () => {
           </ContainerItem>
 
           <ContainerItem onClick={() => redirectToCart()}>
-            <IconCart />
+            <WrapperCart>
+              <IconCart />
+              <NotificationBox />
+            </WrapperCart>
           </ContainerItem>
 
           <IconBars onClick={handleOpenOrCloseMenu} />

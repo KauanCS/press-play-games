@@ -7,14 +7,11 @@ import {
 import CollapseTitle from './collapse-title';
 import CollapseClients from './collapse-clients';
 
-const ClientsComponent = () => {
-  const title = 'AA';
-  return (
-    <Container>
-      <CollapseTitle />
-      <CollapseClients />
-    </Container>
-  );
-};
+const ClientsComponent = () => (
+  <Container>
+    <CollapseTitle />
+    <CollapseClients />
+  </Container>
+);
 
 export default ClientsComponent;

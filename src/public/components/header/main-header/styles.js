@@ -5,21 +5,6 @@ import {
   FaShoppingCart,
 } from 'react-icons/fa';
 
-export const IconBars = styled(FaBars)`
-  display: none;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
-    font-size: 26px;
-    display: flex;
-    position: relative;
-  }
-`;
-
-export const IconCart = styled(FaShoppingCart)`
-  font-size: 26px;
-  display: flex;
-  position: relative;
-`;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -99,11 +84,46 @@ export const MenuItem = styled.a`
 
 export const TitlePressPlay = styled.h2`
   color: ${(props) => props.theme.color.publicTitlePrimary};
-  font-family: 'Russo One Regular';
+  font-family: 'Russo One';
   margin-right: 5px;
 `;
 
 export const TitleGames = styled.h2`
   color: ${(props) => props.theme.color.publicTitleSecondary};
-  font-family: 'Russo One Regular';
+  font-family: 'Russo One';
+`;
+
+export const NotificationBox = styled.div`
+  height: 10px;
+  width: 10px;
+  background-color: ${(props) => props.theme.color.accent};
+  border-radius: 100px;
+  position: absolute;
+  right: -5px;
+`;
+
+export const WrapperCart = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+export const IconBars = styled(FaBars)`
+  display: none;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    font-size: 26px;
+    display: flex;
+    position: relative;
+  }
+`;
+
+export const IconCart = styled(FaShoppingCart)`
+  font-size: 26px;
+  display: flex;
+  position: relative;
+  svg::before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+  }
 `;
