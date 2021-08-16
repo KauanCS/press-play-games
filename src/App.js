@@ -4,11 +4,15 @@ import Routes from './routes';
 import theme from './styles/themes/global';
 import './App.less';
 
+import { UserProvider } from './contexts/user';
+
 const App = () => (
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Routes />
-    </ThemeProvider>
+    <UserProvider>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 

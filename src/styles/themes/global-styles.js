@@ -38,13 +38,13 @@ const GlobalStyles = createGlobalStyle`
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: grey; 
+    background: grey;
     border-radius: 4px;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #606060; 
+    background: #606060;
   }
 
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {

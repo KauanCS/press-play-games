@@ -1,61 +1,38 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Route from 'react-router-dom/Route';
-import Redirect from 'react-router-dom/Redirect';
+import { Redirect } from 'react-router-dom';
+import { useUserContext } from '../../hooks/user';
 
-const CustomRoute = (props) => {
-  const {
-    isAuthenticated,
-    isPublicRoute,
-    component: Component,
-    wrapper: Wrapper,
-    location,
-    ...rest
-  } = props;
+const CustomRoute = ({
+  privateRoute, unsignedRoute, roles,
+  component: Component,
+  wrapper: Wrapper, ...rest
+}) => {
+  const [{ auth: { signed }, permissions }] = useUserContext();
 
-  // useEffect((prevProps) => {
-  //   if (props.location !== prevProps.location) {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, []);
+  if (unsignedRoute && signed) return (<Redirect to="/" />);
+
+  if (privateRoute && !signed) return (<Redirect to="/login" />);
 
   return (
-    <Route
-      {...rest}
-      render={() => {
-        if (isAuthenticated && !isPublicRoute) {
-          return (
-            <Redirect
-              to={{
-                pathname: '/',
-                state: { from: props.location },
-              }}
-            />
-          );
-        }
-
-        return (
-          <Wrapper>
-            <Component {...props} />
-          </Wrapper>
-        );
-      }}
-    />
+    <Wrapper>
+      <Component {...rest} />
+    </Wrapper>
   );
 };
 
 CustomRoute.defaultProps = {
-  isPublicRoute: false,
+  privateRoute: false,
+  unsignedRoute: false,
+  roles: [],
 };
 
 CustomRoute.propTypes = {
+  privateRoute: PropTypes.bool,
+  unsignedRoute: PropTypes.bool,
+  roles: PropTypes.arrayOf(PropTypes.string),
   component: PropTypes.any.isRequired,
   wrapper: PropTypes.any.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  isPublicRoute: PropTypes.bool,
-  location: PropTypes.object.isRequired,
 };
 
 export default CustomRoute;

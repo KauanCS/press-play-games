@@ -24,7 +24,7 @@ const FilterComponent = (props) => {
     suporteUsers,
   } = props;
 
-  const [showMoreFilters, setShowMorFilters] = useState(false);
+  // const [showMoreFilters, setShowMorFilters] = useState(false);
 
   return (
     <FilterWrapper>
@@ -35,9 +35,7 @@ const FilterComponent = (props) => {
             <ContainerCheckbox>
               <FilterText>Suporte</FilterText>
               <WrapperCheckbox>
-                <Checkbox text="Jeziel" />
-                <Checkbox text="Julio" />
-                <Checkbox text="Kaio" />
+                {suporteUsers.map((support) => (<Checkbox key={support.id} text={support.name} />))}
               </WrapperCheckbox>
             </ContainerCheckbox>
 
@@ -63,7 +61,7 @@ const FilterComponent = (props) => {
             <Button.Secondary>Desmarcar todos</Button.Secondary>
           </ContainerButtonSelect>
         </ContainerDefaultFilters>
-
+        {/*
         <ContainerMoreFilters onClick={() => setShowMorFilters(!showMoreFilters)}>
           <ContainerTitleMoreFilters>
             <MoreFilterTitle>Mais filtros</MoreFilterTitle>
@@ -73,7 +71,7 @@ const FilterComponent = (props) => {
               <IconArrowRight />
             )}
           </ContainerTitleMoreFilters>
-        </ContainerMoreFilters>
+        </ContainerMoreFilters> */}
       </ContainerColumn>
 
     </FilterWrapper>

@@ -1,79 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import MaskedInput from 'antd-mask-input';
+import { doSignUp } from '../../../services/user';
+import { useUserContext } from '../../../hooks/user';
 
-import {
-  Button,
-  Checkbox,
-  Container,
-  ContainerLogin,
-  ContainerRight,
-  ContainerInput,
-  ContainerSignUp,
-  BackgroundImage,
-  KratosImage,
-  Text,
-  TextForgot,
-  TextSignUp,
-  Input,
-  TitleHeader,
-} from './styles';
+import SingUpForm from './components/form';
 
 const SignUp = () => {
+  const [user, setUser] = useUserContext();
+
+  const [errors, setErrors] = useState([]);
   const history = useHistory();
+
   const redirectToLogin = () => history.push('/login');
 
-  return (
-    <Container>
-      <BackgroundImage>
-        <ContainerLogin>
-          <TitleHeader>CADASTRAR</TitleHeader>
-          <ContainerInput>
-            <Text>Primeiro Nome *</Text>
-            <Input placeholder="Insira seu primeiro nome" />
-          </ContainerInput>
+  const handleSubmit = async (values) => {
+    const response = await doSignUp(values);
 
-          <ContainerInput>
-            <Text>Sobrenome *</Text>
-            <Input placeholder="Insira seu sobrenome" />
-          </ContainerInput>
+    if (response.status === 200) {
+      setUser({ ...user, name: response.data.payload.name, auth: { token: response.data.token, signed: true } });
 
-          <ContainerInput>
-            <Text>Nome do usuário *</Text>
-            <Input placeholder="Insira seu usuário" />
-          </ContainerInput>
+      history.push('/');
+    } else {
+      setErrors([{ message: response.data.message, type: 'error' }]);
+    }
+  };
 
-          <ContainerInput>
-            <Text>E-mail *</Text>
-            <Input placeholder="Insira seu e-mail" />
-          </ContainerInput>
-
-          <ContainerInput>
-            <Text>Senha *</Text>
-            <Input placeholder="Insira sua senha" />
-          </ContainerInput>
-
-          <ContainerInput>
-            <Text>Telefone *</Text>
-            <MaskedInput mask="(11) 11111-1111" placeholder="Insira seu telefone" />
-          </ContainerInput>
-
-          <Checkbox>Lembre-me</Checkbox>
-          <Button>ACESSAR</Button>
-          <TextForgot>Esqueceu sua senha?</TextForgot>
-
-          <ContainerSignUp>
-            <Text>Já possui uma conta?</Text>
-            <TextSignUp onClick={() => redirectToLogin()}>Clique aqui.</TextSignUp>
-          </ContainerSignUp>
-
-        </ContainerLogin>
-        <ContainerRight>
-          <KratosImage />
-        </ContainerRight>
-      </BackgroundImage>
-    </Container>
-  );
+  return (<SingUpForm redirectToLogin={redirectToLogin} submit={handleSubmit} errorsState={errors} />);
 };
 
 export default SignUp;

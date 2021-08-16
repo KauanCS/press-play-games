@@ -6,6 +6,7 @@ import {
   FaUsers,
   FaGamepad,
 } from 'react-icons/fa';
+import { useUserContext } from '../../hooks/user';
 import ImageLogoController from '../../static/images/controlelogo.png';
 import ImageLogoName from '../../static/images/logo-frase.png';
 import Icon from './Icon';
@@ -25,7 +26,8 @@ import {
 } from './styles';
 
 const MenuWrapper = ({ children }) => {
-  const userName = 'Nome do usuario';
+  const [user] = useUserContext();
+
   return (
     <Container>
 
@@ -37,7 +39,7 @@ const MenuWrapper = ({ children }) => {
 
         <ContainerUser>
           <AstronautIcon />
-          <Username>{userName}</Username>
+          <Username>{user.name}</Username>
         </ContainerUser>
 
         <ContainerLinks>

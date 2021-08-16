@@ -76,10 +76,10 @@ const HeaderComponent = () => {
       </ContainerMenu>
 
       <ContainerResponsiveItem show={isMenuOpen}>
-        <MenuItem>Quem somos</MenuItem>
-        <MenuItem>Como funciona</MenuItem>
-        <MenuItem>Catalogo</MenuItem>
-        <MenuItem>Contato</MenuItem>
+        <MenuItem onClick={() => redirectToHome()}>Quem somos</MenuItem>
+        <MenuItem onClick={() => redirectToHowItWorks()}>Como funciona</MenuItem>
+        <MenuItem onClick={() => redirectToCatalogue()}>Catalogo</MenuItem>
+        <MenuItem onClick={() => redirectToContact()}>Contato</MenuItem>
         <MenuItem>Assinar</MenuItem>
       </ContainerResponsiveItem>
     </Container>
