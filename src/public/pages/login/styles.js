@@ -16,6 +16,12 @@ export const Container = styled.div`
   display: flex;
 `;
 
+export const ContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const ContainerLogin = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +32,9 @@ export const ContainerLogin = styled.div`
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     width: 100%;
     padding: 40px;
+  }
+  &&&& .ant-spin-nested-loading {
+    width: 100%;
   }
 `;
 
@@ -44,6 +53,7 @@ export const ContainerRight = styled.div`
 
 export const ContainerSignUp = styled.div`
   display: flex;
+  align-self: center;
 `;
 
 export const BackgroundImage = styled.div`
@@ -84,9 +94,17 @@ export const TitleHeader = styled.h1`
 
 export const Text = styled.p`
   margin: 0;
+  color: ${(props) => props.theme.color.white}; 
 `;
 
 export const Form = styled(AntForm)``;
+
+export const FormItem = styled(AntForm.Item)`
+  && .ant-form-item-control-input-content {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 export const Input = styled(AntInput)``;
 

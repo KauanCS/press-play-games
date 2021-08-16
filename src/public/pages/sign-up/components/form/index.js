@@ -16,6 +16,7 @@ import {
   Input,
   TitleHeader,
   Form,
+  FormItem,
 } from './styles';
 
 const SignUp = ({ redirectToLogin, submit, errorsState }) => (
@@ -31,53 +32,53 @@ const SignUp = ({ redirectToLogin, submit, errorsState }) => (
           initialValues={{ remember: true }}
           onFinish={submit}
         >
-          <Form.Item
+          <FormItem
             name="name"
             rules={[{ required: true, message: 'Obrigatório' }]}
             label="Nome"
           >
             <Input placeholder="Insira seu primeiro nome" />
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="lastname"
             rules={[{ required: true, message: 'Obrigatório' }]}
             label="Sobrenome"
           >
             <Input placeholder="Insira seu sobrenome" />
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="username"
             rules={[{ required: true, message: 'Obrigatório' }]}
             label="Nome de usuário"
           >
             <Input placeholder="Insira seu nome de usuário" />
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="email"
             rules={[{ required: true, message: 'Obrigatório' }]}
-            label="e-mail"
+            label="E-mail"
           >
             <Input placeholder="Insira seu e-mail" />
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="password"
             rules={[{ required: true, message: 'Obrigatório' }]}
             label="Senha"
           >
             <Input placeholder="Insira sua senha" />
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="phonenumber"
             rules={[{ required: true, message: 'Obrigatório' }]}
             label="Telefone"
           >
             <MaskedInput mask="(11) 11111-1111" placeholder="Insira seu telefone" />
-          </Form.Item>
+          </FormItem>
 
           <Button htmlType="submit" block>
             Cadastrar
