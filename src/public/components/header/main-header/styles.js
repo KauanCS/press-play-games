@@ -60,7 +60,7 @@ export const ContainerMenuItems = styled.div`
   display: flex;
 `;
 
-export const ContainerItem = styled.div`
+export const ContainerItem = styled.a`
   cursor: pointer;
   padding: 10px;
   display: flex;
@@ -105,6 +105,7 @@ export const NotificationBox = styled.div`
 export const WrapperCart = styled.div`
   display: flex;
   position: relative;
+  color: white
 `;
 
 export const IconBars = styled(FaBars)`
