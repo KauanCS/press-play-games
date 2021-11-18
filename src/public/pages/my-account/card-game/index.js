@@ -21,9 +21,9 @@ const CardGame = () => {
   const showModal = () => {
     setIsModalOpen(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
-    console.log(isModalOpen);
   };
 
   return (

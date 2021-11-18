@@ -16,7 +16,21 @@ export const Container = styled.div`
   display: flex;
 `;
 
-export const Form = styled(AntForm)``;
+export const Form = styled(AntForm)`
+  &&.ant-form {
+    width: 100%;
+  }
+`;
+
+export const FormItem = styled(AntForm.Item)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  && .ant-form-item-label > label {
+    color: ${(props) => props.theme.color.white};
+  }
+`;
 
 export const Alert = styled(AntAlert)``;
 
@@ -30,6 +44,9 @@ export const ContainerLogin = styled.div`
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     width: 100%;
     padding: 40px;
+  }
+  && .ant-form-horizontal .ant-form-item-control {
+    width: 100%;
   }
 `;
 
@@ -48,6 +65,7 @@ export const ContainerRight = styled.div`
 
 export const ContainerSignUp = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 export const BackgroundImage = styled.div`
@@ -88,9 +106,14 @@ export const TitleHeader = styled.h1`
 
 export const Text = styled.p`
   margin: 0;
+  color: ${(props) => props.theme.color.white};
 `;
 
-export const Input = styled(AntInput)``;
+export const Input = styled(AntInput)`
+  && {
+    width: 100%;
+  }
+`;
 
 export const Link = styled.a`
   margin-top: 10px;
@@ -105,13 +128,14 @@ export const Checkbox = styled(AntCheckbox)`
 
 export const Button = styled(CustomButton)`
   width: 120px;
-  align-self: flex-start;
-  margin: 10px 0;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
 `;
 
 export const TextForgot = styled.a`
   font-weight: 500;
-  align-self: flex-start;
+  justify-content: center;
   margin-bottom: 20px;
 `;
 

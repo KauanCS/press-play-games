@@ -22,6 +22,8 @@ import {
   TitleHeader,
   Alert,
   Form,
+  FormItem,
+  ContainerColumn,
 } from './styles';
 
 const Login = () => {
@@ -79,16 +81,18 @@ const Login = () => {
                   placeholder="Insira seu password"
                 />
               </Form.Item>
-              <Form.Item>
-                <Checkbox>Lembre-me</Checkbox>
-                <Button htmlType="submit">ACESSAR</Button>
-                <TextForgot>Esqueceu sua senha?</TextForgot>
+              <ContainerColumn>
+                <FormItem>
+                  <Checkbox>Lembre-me</Checkbox>
+                  <Button htmlType="submit">ACESSAR</Button>
+                  <TextForgot>Esqueceu sua senha?</TextForgot>
 
-                <ContainerSignUp>
-                  <Text>Não possui uma conta?</Text>
-                  <TextSignUp onClick={() => redirectToSignUp()}>Registrar-se</TextSignUp>
-                </ContainerSignUp>
-              </Form.Item>
+                  <ContainerSignUp>
+                    <Text>Não possui uma conta?</Text>
+                    <TextSignUp onClick={() => redirectToSignUp()}>Registrar-se</TextSignUp>
+                  </ContainerSignUp>
+                </FormItem>
+              </ContainerColumn>
             </Form>
 
           </Loading>
