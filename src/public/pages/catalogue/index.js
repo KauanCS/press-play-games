@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { loadAllGames } from '../../../services/games';
 
 import {
   Container,
@@ -14,36 +15,46 @@ import {
 import CardComponent from './card-component';
 import FilterComponent from './filter-component';
 
-const Catalogue = () => (
-  <Container>
-    <BackgroundImage>
-      <Overlay />
-      <TitleHeader>CATALOGO DE GAMES</TitleHeader>
-    </BackgroundImage>
+const Catalogue = () => {
+  const [gamesState, setGamesState] = useState([]);
 
-    <ContainerContent>
-      <FilterComponent />
+  useEffect(() => {
+    const loadGames = async () => {
+      const result = await loadAllGames();
+      if (result.status === 200) {
+        setGamesState([...result.data.payload]);
+      }
+    };
 
-      <ContainerGames>
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-      </ContainerGames>
-    </ContainerContent>
+    loadGames();
+  }, []);
 
-    <ContainerBottom>
-      <Pagination
-        defaultCurrent={1}
-        total={280}
-        hideOnSinglePage
-        showSizeChanger={false}
-      />
-    </ContainerBottom>
+  return (
+    <Container>
+      <BackgroundImage>
+        <Overlay />
+        <TitleHeader>CATALOGO DE GAMES</TitleHeader>
+      </BackgroundImage>
 
-  </Container>
-);
+      <ContainerContent>
+        <FilterComponent />
+
+        <ContainerGames>
+          { gamesState.map((game) => (<CardComponent game={game} />)) }
+        </ContainerGames>
+      </ContainerContent>
+
+      <ContainerBottom>
+        <Pagination
+          defaultCurrent={1}
+          total={280}
+          hideOnSinglePage
+          showSizeChanger={false}
+        />
+      </ContainerBottom>
+
+    </Container>
+  );
+};
 
 export default Catalogue;
