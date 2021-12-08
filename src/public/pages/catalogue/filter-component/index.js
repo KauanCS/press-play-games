@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   ContainerLeftside,
@@ -14,21 +14,56 @@ import {
 import SelectableSearch from '../../../../components/input-selectable-search';
 import FilterWrapper from '../../../../components/filter-wrapper';
 
-const PLATFORM_OPTIONS = ['PS4', 'PS5'];
-const ACCOUNT_OPTIONS = ['Primária', 'Secundária'];
+import { loadAllPlatformConsole } from '../../../../services/platformConsole';
+import { loadAllPlatformAccountTypes } from '../../../../services/platformAccountTypes';
+import { loadAllCategory } from '../../../../services/category';
 
 const Filter = () => {
-  const testArrayAutocomplete = [
-    { key: '1', value: 'A' },
-    { key: '2', value: 'B' },
-    { key: '3', value: 'C' },
-    { key: '4', value: 'D' },
-    { key: '5', value: 'E' },
-  ];
+  const [platformConsoles, setPlatformConsoles] = useState([]);
+  const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const { Search } = Input;
 
   const onSearch = (value) => console.log(value);
+
+  useEffect(() => {
+    const loadAllPlatformConsoleAsync = async () => {
+      const data = await loadAllPlatformConsole();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        setPlatformConsoles(payload.map((item) => ({ name: item.name, id: item.id, description: item.description })));
+      }
+    };
+
+    loadAllPlatformConsoleAsync();
+  }, []);
+
+  useEffect(() => {
+    const loadAllCategoryAsync = async () => {
+      const data = await loadAllCategory();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        console.log(payload);
+
+        setCategories(payload.map((item) => ({ name: item.name, id: item.id })));
+      }
+    };
+
+    loadAllCategoryAsync();
+  }, []);
+
+  useEffect(() => {
+    const loadAllPlatformAccountTypesAsync = async () => {
+      const data = await loadAllPlatformAccountTypes();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        setPlatformAccountTypes(payload.map((item) => ({ name: item.name, id: item.id })));
+      }
+    };
+
+    loadAllPlatformAccountTypesAsync();
+  }, []);
 
   return (
     <FilterWrapper>
@@ -43,7 +78,7 @@ const Filter = () => {
 
           <SelectableSearch
             placeholder="Selecione as categorias"
-            options={testArrayAutocomplete}
+            options={categories.map((item) => ({ value: item.name, key: item.id }))}
             multiple
           />
         </ContainerSearchFilter>
@@ -53,8 +88,7 @@ const Filter = () => {
             <Label>Plataforma: </Label>
 
             <CheckboxGroup
-              options={PLATFORM_OPTIONS}
-              defaultValue={['PS4', 'PS5']}
+              options={platformConsoles.map((item) => ({ label: item.name, value: item.id }))}
             />
           </ContainerItemFilter>
 
@@ -62,7 +96,7 @@ const Filter = () => {
             <Label>Tipo de conta: </Label>
 
             <CheckboxGroup
-              options={ACCOUNT_OPTIONS}
+              options={platformAccountTypes.map((item) => ({ label: item.name, value: item.id }))}
               defaultValue={['Primária', 'Secundária']}
             />
           </ContainerItemFilter>

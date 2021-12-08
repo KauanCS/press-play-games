@@ -44,7 +44,7 @@ InputSearch.propTypes = {
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.string,
+      key: PropTypes.number,
       value: PropTypes.string,
     }),
   ).isRequired,

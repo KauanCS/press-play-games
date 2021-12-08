@@ -36,7 +36,7 @@ const Login = () => {
     setLoading(true);
     const response = await doLogin(values);
 
-    if (response.status === 401) {
+    if (response && response.status === 401) {
       setErrors([{ message: response.data.message, type: 'error' }]);
       setLoading(false);
       return;
