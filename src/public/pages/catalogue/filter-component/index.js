@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ContainerLeftside,
@@ -18,14 +19,18 @@ import { loadAllPlatformConsole } from '../../../../services/platformConsole';
 import { loadAllPlatformAccountTypes } from '../../../../services/platformAccountTypes';
 import { loadAllCategory } from '../../../../services/category';
 
-const Filter = () => {
+const Filter = ({ onFilterChange, filterValues }) => {
   const [platformConsoles, setPlatformConsoles] = useState([]);
   const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const { Search } = Input;
 
-  const onSearch = (value) => console.log(value);
+  const onSearch = (value) => onFilterChange({ ...filterValues, search: value });
+  const onOnlyAvaliable = (value) => onFilterChange({ ...filterValues, onlyAvaliable: value });
+  const onCategories = (values) => onFilterChange({ ...filterValues, categories: [...values] });
+  const onPlatformAccountTypes = (values) => onFilterChange({ ...filterValues, platformAccountTypes: [...values] });
+  const onPlatformConsoles = (values) => onFilterChange({ ...filterValues, platformConsoles: [...values] });
 
   useEffect(() => {
     const loadAllPlatformConsoleAsync = async () => {
@@ -79,6 +84,8 @@ const Filter = () => {
           <SelectableSearch
             placeholder="Selecione as categorias"
             options={categories.map((item) => ({ value: item.name, key: item.id }))}
+            defaultValue={filterValues.categories}
+            onChange={onCategories}
             multiple
           />
         </ContainerSearchFilter>
@@ -89,6 +96,7 @@ const Filter = () => {
 
             <CheckboxGroup
               options={platformConsoles.map((item) => ({ label: item.name, value: item.id }))}
+              onChange={onPlatformConsoles}
             />
           </ContainerItemFilter>
 
@@ -97,7 +105,7 @@ const Filter = () => {
 
             <CheckboxGroup
               options={platformAccountTypes.map((item) => ({ label: item.name, value: item.id }))}
-              defaultValue={['Primária', 'Secundária']}
+              onChange={onPlatformAccountTypes}
             />
           </ContainerItemFilter>
         </ContainerRow>
@@ -105,12 +113,17 @@ const Filter = () => {
         <ContainerItemFilter responsiveRow>
           <Label>Mostrar apenas disponíveis: </Label>
 
-          <Switch defaultChecked />
+          <Switch checked={filterValues.onlyAvaliable} onClick={onOnlyAvaliable} />
         </ContainerItemFilter>
       </ContainerLeftside>
 
     </FilterWrapper>
   );
+};
+
+Filter.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  filterValues: PropTypes.object.isRequired,
 };
 
 export default Filter;

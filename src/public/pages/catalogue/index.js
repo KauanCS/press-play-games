@@ -18,6 +18,26 @@ import FilterComponent from './filter-component';
 const Catalogue = () => {
   const [gamesState, setGamesState] = useState([]);
 
+  const [filterState, setFilterState] = useState({
+    categories: [],
+    platformAccountTypes: [],
+    platformConsoles: [],
+    onlyAvaliable: false,
+    search: '',
+  });
+
+  const handleFilterChange = (values) => {
+    console.log(values);
+
+    setFilterState({
+      categories: [...values.categories],
+      platformAccountTypes: [...values.platformAccountTypes],
+      platformConsoles: [...values.platformConsoles],
+      onlyAvaliable: values.onlyAvaliable,
+      search: values.search,
+    });
+  };
+
   useEffect(() => {
     const loadGames = async () => {
       const result = await loadAllGames();
@@ -37,10 +57,16 @@ const Catalogue = () => {
       </BackgroundImage>
 
       <ContainerContent>
-        <FilterComponent />
+        <FilterComponent onFilterChange={handleFilterChange} filterValues={filterState} />
 
         <ContainerGames>
-          { gamesState.map((game) => (<CardComponent game={game} />)) }
+          { gamesState.filter((game) => {
+            return (
+              (!filterState.search || game.name.toLowerCase().includes(filterState.search.toLowerCase()))
+              && (filterState.platformConsoles.length === 0 || game.gamePlatformConsoles.some((gamePlatformConsole) => filterState.platformConsoles.includes(gamePlatformConsole.platformConsole.id)))
+              && (filterState.categories.length === 0 || game.gameCategories.some((gameCategory) => filterState.categories.includes(gameCategory.id)))
+            );
+          }).map((game) => (<CardComponent game={game} />)) }
         </ContainerGames>
       </ContainerContent>
 
