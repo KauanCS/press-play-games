@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button as AntButton } from 'antd';
+import { Button as AntButton, Tag as AntTag } from 'antd';
 
 export const Container = styled.div`
   display: flex;
@@ -35,6 +35,11 @@ export const TitleGame = styled.h1`
 `;
 
 export const Button = styled(AntButton)`
+  max-width: 100%;
+  margin: 10px 0;
+`;
+
+export const Tag = styled(AntTag)`
   max-width: 100%;
   margin: 10px 0;
 `;

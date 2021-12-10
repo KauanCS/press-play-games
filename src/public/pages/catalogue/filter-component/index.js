@@ -15,15 +15,13 @@ import {
 import SelectableSearch from '../../../../components/input-selectable-search';
 import FilterWrapper from '../../../../components/filter-wrapper';
 
-import { loadAllPlatformConsole } from '../../../../services/platformConsole';
-import { loadAllPlatformAccountTypes } from '../../../../services/platformAccountTypes';
-import { loadAllCategory } from '../../../../services/category';
-
-const Filter = ({ onFilterChange, filterValues }) => {
-  const [platformConsoles, setPlatformConsoles] = useState([]);
-  const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
-  const [categories, setCategories] = useState([]);
-
+const Filter = ({
+  onFilterChange,
+  filterValues,
+  categories,
+  platformConsoles,
+  platformAccountTypes,
+}) => {
   const { Search } = Input;
 
   const onSearch = (value) => onFilterChange({ ...filterValues, search: value });
@@ -31,44 +29,6 @@ const Filter = ({ onFilterChange, filterValues }) => {
   const onCategories = (values) => onFilterChange({ ...filterValues, categories: [...values] });
   const onPlatformAccountTypes = (values) => onFilterChange({ ...filterValues, platformAccountTypes: [...values] });
   const onPlatformConsoles = (values) => onFilterChange({ ...filterValues, platformConsoles: [...values] });
-
-  useEffect(() => {
-    const loadAllPlatformConsoleAsync = async () => {
-      const data = await loadAllPlatformConsole();
-      if (data.status === 200) {
-        const { data: { payload } } = data;
-        setPlatformConsoles(payload.map((item) => ({ name: item.name, id: item.id, description: item.description })));
-      }
-    };
-
-    loadAllPlatformConsoleAsync();
-  }, []);
-
-  useEffect(() => {
-    const loadAllCategoryAsync = async () => {
-      const data = await loadAllCategory();
-      if (data.status === 200) {
-        const { data: { payload } } = data;
-        console.log(payload);
-
-        setCategories(payload.map((item) => ({ name: item.name, id: item.id })));
-      }
-    };
-
-    loadAllCategoryAsync();
-  }, []);
-
-  useEffect(() => {
-    const loadAllPlatformAccountTypesAsync = async () => {
-      const data = await loadAllPlatformAccountTypes();
-      if (data.status === 200) {
-        const { data: { payload } } = data;
-        setPlatformAccountTypes(payload.map((item) => ({ name: item.name, id: item.id })));
-      }
-    };
-
-    loadAllPlatformAccountTypesAsync();
-  }, []);
 
   return (
     <FilterWrapper>
@@ -124,6 +84,9 @@ const Filter = ({ onFilterChange, filterValues }) => {
 Filter.propTypes = {
   onFilterChange: PropTypes.func.isRequired,
   filterValues: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
+  platformConsoles: PropTypes.array.isRequired,
+  platformAccountTypes: PropTypes.array.isRequired,
 };
 
 export default Filter;

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { loadAllGames } from '../../../services/games';
-
+import { loadAllPlatformConsole } from '../../../services/platformConsole';
+import { loadAllPlatformAccountTypes } from '../../../services/platformAccountTypes';
+import { loadAllCategory } from '../../../services/category';
 import {
   Container,
   ContainerGames,
@@ -17,6 +19,10 @@ import FilterComponent from './filter-component';
 
 const Catalogue = () => {
   const [gamesState, setGamesState] = useState([]);
+
+  const [platformConsoles, setPlatformConsoles] = useState([]);
+  const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const [filterState, setFilterState] = useState({
     categories: [],
@@ -49,6 +55,44 @@ const Catalogue = () => {
     loadGames();
   }, []);
 
+  useEffect(() => {
+    const loadAllPlatformConsoleAsync = async () => {
+      const data = await loadAllPlatformConsole();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        setPlatformConsoles(payload.map((item) => ({ name: item.name, id: item.id, description: item.description })));
+      }
+    };
+
+    loadAllPlatformConsoleAsync();
+  }, []);
+
+  useEffect(() => {
+    const loadAllCategoryAsync = async () => {
+      const data = await loadAllCategory();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        console.log(payload);
+
+        setCategories(payload.map((item) => ({ name: item.name, id: item.id })));
+      }
+    };
+
+    loadAllCategoryAsync();
+  }, []);
+
+  useEffect(() => {
+    const loadAllPlatformAccountTypesAsync = async () => {
+      const data = await loadAllPlatformAccountTypes();
+      if (data.status === 200) {
+        const { data: { payload } } = data;
+        setPlatformAccountTypes(payload.map((item) => ({ name: item.name, id: item.id })));
+      }
+    };
+
+    loadAllPlatformAccountTypesAsync();
+  }, []);
+
   return (
     <Container>
       <BackgroundImage>
@@ -57,7 +101,13 @@ const Catalogue = () => {
       </BackgroundImage>
 
       <ContainerContent>
-        <FilterComponent onFilterChange={handleFilterChange} filterValues={filterState} />
+        <FilterComponent
+          platformConsoles={platformConsoles}
+          platformAccountTypes={platformAccountTypes}
+          categories={categories}
+          onFilterChange={handleFilterChange}
+          filterValues={filterState}
+        />
 
         <ContainerGames>
           { gamesState.filter((game) => (
@@ -67,7 +117,7 @@ const Catalogue = () => {
               && (!filterState.onlyAvaliable || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => acountConsoleAvaliable.avaliable))
               && (filterState.platformAccountTypes.length === 0
                   || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => filterState.platformAccountTypes.includes(acountConsoleAvaliable.platformAccountTypeId)))
-          )).map((game) => (<CardComponent game={game} />)) }
+          )).map((game) => (<CardComponent platformConsoles={platformConsoles} game={game} />)) }
         </ContainerGames>
       </ContainerContent>
 
