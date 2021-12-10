@@ -60,13 +60,14 @@ const Catalogue = () => {
         <FilterComponent onFilterChange={handleFilterChange} filterValues={filterState} />
 
         <ContainerGames>
-          { gamesState.filter((game) => {
-            return (
-              (!filterState.search || game.name.toLowerCase().includes(filterState.search.toLowerCase()))
-              && (filterState.platformConsoles.length === 0 || game.gamePlatformConsoles.some((gamePlatformConsole) => filterState.platformConsoles.includes(gamePlatformConsole.platformConsole.id)))
-              && (filterState.categories.length === 0 || game.gameCategories.some((gameCategory) => filterState.categories.includes(gameCategory.id)))
-            );
-          }).map((game) => (<CardComponent game={game} />)) }
+          { gamesState.filter((game) => (
+            (!filterState.search || game.name.toLowerCase().includes(filterState.search.toLowerCase()))
+              && (filterState.platformConsoles.length === 0 || game.consoles.some((console) => filterState.platformConsoles.includes(console)))
+              && (filterState.categories.length === 0 || game.categories.some((category) => filterState.categories.includes(category)))
+              && (!filterState.onlyAvaliable || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => acountConsoleAvaliable.avaliable))
+              && (filterState.platformAccountTypes.length === 0
+                  || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => filterState.platformAccountTypes.includes(acountConsoleAvaliable.platformAccountTypeId)))
+          )).map((game) => (<CardComponent game={game} />)) }
         </ContainerGames>
       </ContainerContent>
 
