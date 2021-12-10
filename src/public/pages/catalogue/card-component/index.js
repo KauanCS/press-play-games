@@ -25,7 +25,7 @@ const CardComponent = ({ game, platformConsoles }) => (
             const isPlatformAvaliable = game.acountConsoleAvaliables.some((acountConsoleAvaliable) => acountConsoleAvaliable.platformConsoleId === platformConsole.id);
 
             return (
-              <Tag color={isPlatformAvaliable ? 'blue' : 'magenta'}>{(isPlatformAvaliable && platformConsole.name) || 'Indisponivel'}</Tag>
+              <Tag color={isPlatformAvaliable ? 'blue' : 'magenta'}>{(platformConsole.name)}</Tag>
             );
           })
         }
