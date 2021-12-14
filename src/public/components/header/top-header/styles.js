@@ -61,6 +61,7 @@ export const ContainerUser = styled.div`
 export const ContainerButtons = styled.div`
   display: flex;
   gap: 10px;
+  align-items: center;
 `;
 
 export const Text = styled.p`
@@ -88,7 +89,9 @@ export const IconUser = styled(FaUserAlt)``;
 
 export const Menu = styled(AntMenu)``;
 
-export const Dropdown = styled(AntDropdown)``;
+export const Dropdown = styled(AntDropdown)`
+  cursor: pointer;
+`;
 
 export const TextUser = styled.p`
   font-size: 16px;

@@ -19,7 +19,7 @@ export const ContainerGames = styled.div`
 
 export const ContainerContent = styled.div`
   display: flex;
-  max-width: 1000px;
+  width: 1000px;
   margin: 20px;
   flex-direction: column;
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
