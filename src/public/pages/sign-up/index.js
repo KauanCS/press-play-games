@@ -16,10 +16,8 @@ const SignUp = () => {
   const handleSubmit = async (values) => {
     const response = await doSignUp(values);
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       setUser({ ...user, name: response.data.payload.name, auth: { token: response.data.token, signed: true } });
-
-      history.push('/');
     } else {
       setErrors([{ message: response.data.message, type: 'error' }]);
     }
