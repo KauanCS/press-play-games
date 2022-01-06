@@ -39,7 +39,13 @@ export const Button = styled(AntButton)`
   margin: 10px 0;
 `;
 
+export const ContainerTag = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export const Tag = styled(AntTag)`
-  max-width: 100%;
-  margin: 10px 0;
+  width: 100%;
+  margin: 5px 0;
+  text-align: center;
 `;

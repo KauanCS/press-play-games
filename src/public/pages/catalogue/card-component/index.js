@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import {
   Button,
   Container,
+  ContainerTag,
   ContainerDescription,
   Image,
   TitleGame,
   Tag,
 } from './styles';
 
-const urlImage = 'https://pressplaygames.com.br/wp-content/uploads/2021/04/capa2-game-ps4-desensolvimento-pressplay.jpg';
+const urlImage = 'https://pressplaygames.com.br/painelpremium/imagens/Cyberpunk%202077.jpg';
 
 const CardComponent = ({ game, platformConsoles }) => (
   <Container>
@@ -19,7 +20,7 @@ const CardComponent = ({ game, platformConsoles }) => (
       <TitleGame>{game.name}</TitleGame>
 
       <Button type="primary">Alugar</Button>
-      <>
+      <ContainerTag>
         {
           platformConsoles.map((platformConsole) => {
             const isPlatformAvaliable = game.acountConsoleAvaliables.some((acountConsoleAvaliable) => acountConsoleAvaliable.platformConsoleId === platformConsole.id);
@@ -29,7 +30,7 @@ const CardComponent = ({ game, platformConsoles }) => (
             );
           })
         }
-      </>
+      </ContainerTag>
     </ContainerDescription>
   </Container>
 );

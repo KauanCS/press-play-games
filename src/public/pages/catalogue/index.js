@@ -17,12 +17,15 @@ import {
 import CardComponent from './card-component';
 import FilterComponent from './filter-component';
 
+const ITEMS_PER_PAGE = 4;
+
 const Catalogue = () => {
   const [gamesState, setGamesState] = useState([]);
 
   const [platformConsoles, setPlatformConsoles] = useState([]);
   const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [filterState, setFilterState] = useState({
     categories: [],
@@ -31,6 +34,10 @@ const Catalogue = () => {
     onlyAvaliable: false,
     search: '',
   });
+
+  const handleChangePage = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleFilterChange = (values) => {
     console.log(values);
@@ -117,16 +124,21 @@ const Catalogue = () => {
               && (!filterState.onlyAvaliable || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => acountConsoleAvaliable.avaliable))
               && (filterState.platformAccountTypes.length === 0
                   || game.acountConsoleAvaliables.some((acountConsoleAvaliable) => filterState.platformAccountTypes.includes(acountConsoleAvaliable.platformAccountTypeId)))
-          )).map((game) => (<CardComponent platformConsoles={platformConsoles} game={game} />)) }
+          ))
+            .slice((currentPage - 1) * ITEMS_PER_PAGE, ITEMS_PER_PAGE * currentPage)
+            .map((game) => (<CardComponent platformConsoles={platformConsoles} game={game} />)) }
         </ContainerGames>
       </ContainerContent>
 
       <ContainerBottom>
         <Pagination
           defaultCurrent={1}
-          total={280}
+          total={gamesState.length}
           hideOnSinglePage
+          pageSize={ITEMS_PER_PAGE}
           showSizeChanger={false}
+          current={currentPage}
+          onChange={handleChangePage}
         />
       </ContainerBottom>
 
