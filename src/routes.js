@@ -13,6 +13,8 @@ import SignUp from './public/pages/sign-up';
 import Cart from './public/pages/cart';
 import MyAccount from './public/pages/my-account';
 import Historic from './public/pages/historic';
+import VerifyAccount from './public/pages/verify-account';
+import Banned from './public/pages/banned';
 
 import MenuWrapper from './components/menu-wrapper';
 import Games from './admin/pages/games';
@@ -34,6 +36,8 @@ const Routes = () => {
           <Route exact unsignedRoute path="/login" component={Login} wrapper={PublicWrapper} />
           <Route exact unsignedRoute path="/cadastrar" component={SignUp} wrapper={PublicWrapper} />
 
+          <Route exact privateRoute path="/confirm-account" component={VerifyAccount} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/banned" component={Banned} wrapper={PublicWrapper} />
           <Route exact privateRoute path="/carrinho" component={Cart} wrapper={PublicWrapper} />
           <Route exact path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
           <Route exact path="/historico" component={Historic} wrapper={PublicWrapper} />
