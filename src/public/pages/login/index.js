@@ -42,7 +42,7 @@ const Login = () => {
       return;
     }
 
-    setUser({ ...user, auth: { token: response.data.token, signed: true, name: response.data.name } });
+    setUser({ auth: { token: response.data.token, signed: true }, user: { ...user, ...response.data.user } });
     history.push('/');
   };
 
