@@ -9,6 +9,7 @@ import HowItWorks from './public/pages/how-it-works';
 import Catalogue from './public/pages/catalogue';
 import Contact from './public/pages/contact';
 import Login from './public/pages/login';
+import Confirmation from './public/pages/confirmation';
 import SignUp from './public/pages/sign-up';
 import Cart from './public/pages/cart';
 import MyAccount from './public/pages/my-account';
@@ -33,6 +34,7 @@ const Routes = () => {
           <Route exact path="/contato" component={Contact} wrapper={PublicWrapper} />
           <Route exact unsignedRoute path="/login" component={Login} wrapper={PublicWrapper} />
           <Route exact unsignedRoute path="/cadastrar" component={SignUp} wrapper={PublicWrapper} />
+          <Route exact path="/confirmacao" component={Confirmation} wrapper={PublicWrapper} />
 
           <Route exact privateRoute path="/carrinho" component={Cart} wrapper={PublicWrapper} />
           <Route exact path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />

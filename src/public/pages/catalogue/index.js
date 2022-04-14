@@ -17,7 +17,7 @@ import {
 import CardComponent from './card-component';
 import FilterComponent from './filter-component';
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 5;
 
 const Catalogue = () => {
   const [gamesState, setGamesState] = useState([]);
