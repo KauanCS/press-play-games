@@ -8,6 +8,7 @@ import {
 
 // MOBILE ONLY
 export const Container = styled.div`
+  display: none;
   @media only screen and (max-width: 600px) {
     display: flex;
     background: ${(props) => props.theme.color.publicPrimaryDark};

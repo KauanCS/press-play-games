@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import {
+  FaHeart,
+} from 'react-icons/fa';
 
 import { Button as AntButton, Tag as AntTag } from 'antd';
 
@@ -22,6 +25,27 @@ export const ContainerDescription = styled.div`
 export const ContainerAvailability = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const ContainerImage = styled.div`
+  display: flex;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: 0;
+  `;
+
+export const IconHeart = styled(FaHeart)`
+  font-size: 18px;
+  color: ${({ isFavorite }) => (isFavorite ? 'red' : 'white')};
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`
