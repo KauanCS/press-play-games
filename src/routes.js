@@ -41,8 +41,8 @@ const Routes = () => {
           <Route exact privateRoute path="/confirm-account" component={VerifyAccount} wrapper={PublicWrapper} />
           <Route exact privateRoute path="/banned" component={Banned} wrapper={PublicWrapper} />
           <Route exact privateRoute path="/carrinho" component={Cart} wrapper={PublicWrapper} />
-          <Route exact path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
-          <Route exact path="/historico" component={Historic} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/historico" component={Historic} wrapper={PublicWrapper} />
 
           {/* Admin routes */}
           <Route exact privateRoute path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />
