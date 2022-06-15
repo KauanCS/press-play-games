@@ -17,8 +17,9 @@ export const Container = styled.div`
   color: ${(props) => props.theme.color.white};
   justify-content: space-between;
   padding: 0 40px;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 280px) and (max-device-width : 540px) {
     justify-content: flex-end;
+    padding: 10px;
   }
 `;
 
@@ -26,7 +27,7 @@ export const ContainerTextPhone = styled.div`
   display: flex;
   font-size: 16px;
   align-items: center;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 280px) and (max-device-width : 540px) {
     display: none;
   }
 `;
@@ -48,14 +49,6 @@ export const ContainerItem = styled.div`
       color: black;
     }
   }
-`;
-
-export const ContainerUser = styled.div`
-  cursor: pointer;
-  padding: 10px;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
 `;
 
 export const ContainerButtons = styled.div`

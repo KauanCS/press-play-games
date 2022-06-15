@@ -21,7 +21,7 @@ const ITEMS_PER_PAGE = 5;
 
 const Catalogue = () => {
   const [gamesState, setGamesState] = useState([]);
-
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const [platformConsoles, setPlatformConsoles] = useState([]);
   const [platformAccountTypes, setPlatformAccountTypes] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -114,6 +114,7 @@ const Catalogue = () => {
           categories={categories}
           onFilterChange={handleFilterChange}
           filterValues={filterState}
+          setSelectedOrder={setSelectedOrder}
         />
 
         <ContainerGames>

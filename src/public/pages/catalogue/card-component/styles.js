@@ -7,19 +7,23 @@ import { Button as AntButton, Tag as AntTag } from 'antd';
 
 export const Container = styled.div`
   display: flex;
-  background-color: ${(props) => props.theme.color.bacgroundCatalogueGame};
+  background-color: ${(props) => props.theme.color.backgroundCatalogueGame};
   box-shadow: 0px 10px 10px -5px rgb(0 0 0 / 20%);
   flex-direction: column;
   flex: 0 1 calc(25% - 1em);
-  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
     flex: 0 1 calc(50% - 1em);
+    flex-direction: row;
+    max-height: 100px;
   }
 `;
 
 export const ContainerDescription = styled.div`
   display: flex;
-  flex-direction: column;
   padding: 10px;
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerAvailability = styled.div`
@@ -37,15 +41,37 @@ export const ContainerImage = styled.div`
   -ms-user-select: none;
   user-select: none;
   outline: 0;
-  `;
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
+    width: 120px;
+  }
+`;
+
+export const ContainerHeart = styled.div`
+  display: none;
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 40px;
+  }
+`;
+
+export const ContainerNameButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 export const IconHeart = styled(FaHeart)`
   font-size: 18px;
   color: ${({ isFavorite }) => (isFavorite ? 'red' : 'white')};
-  position: absolute;
+  position: ${({ absolute }) => absolute && 'absolute'};
   top: 5px;
   right: 5px;
   cursor: pointer;
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
+    display: ${({ none }) => none && 'none'};
+  }
 `;
 
 export const Image = styled.img`

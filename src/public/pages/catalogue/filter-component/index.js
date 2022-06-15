@@ -21,6 +21,7 @@ const Filter = ({
   categories,
   platformConsoles,
   platformAccountTypes,
+  setSelectedOrder,
 }) => {
   const { Search } = Input;
 
@@ -31,7 +32,7 @@ const Filter = ({
   const onPlatformConsoles = (values) => onFilterChange({ ...filterValues, platformConsoles: [...values] });
 
   return (
-    <FilterWrapper>
+    <FilterWrapper setSelectedOrder={setSelectedOrder}>
       <ContainerLeftside>
 
         <ContainerSearchFilter>
@@ -87,6 +88,7 @@ Filter.propTypes = {
   categories: PropTypes.array.isRequired,
   platformConsoles: PropTypes.array.isRequired,
   platformAccountTypes: PropTypes.array.isRequired,
+  setSelectedOrder: PropTypes.func.isRequired,
 };
 
 export default Filter;

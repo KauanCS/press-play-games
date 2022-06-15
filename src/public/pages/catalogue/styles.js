@@ -15,6 +15,9 @@ export const ContainerGames = styled.div`
   gap: 18px;
   margin: 20px 0;
   flex-wrap: wrap;
+  @media only screen and (min-device-width : 280px) and (max-device-width : 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ContainerContent = styled.div`

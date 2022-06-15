@@ -5,6 +5,8 @@ import {
   Button,
   Container,
   ContainerTag,
+  ContainerNameButton,
+  ContainerHeart,
   ContainerImage,
   IconHeart,
   ContainerDescription,
@@ -19,7 +21,6 @@ const CardComponent = ({ game, platformConsoles }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const switchFavorite = (e) => {
-    console.log(isFavorite);
     setIsFavorite(!isFavorite);
     e.preventDefault();
     e.stopPropagation();
@@ -28,13 +29,18 @@ const CardComponent = ({ game, platformConsoles }) => {
   return (
     <Container>
       <ContainerImage>
-        <IconHeart onClick={switchFavorite} isFavorite={isFavorite} />
+        <IconHeart onClick={switchFavorite} isFavorite={isFavorite} absolute none />
         <Image src={urlImage} />
       </ContainerImage>
       <ContainerDescription>
-        <TitleGame>{game.name}</TitleGame>
+        <ContainerNameButton>
+          <TitleGame>{game.name}</TitleGame>
 
-        <Button type="primary">Alugar</Button>
+          <Button type="primary">Alugar</Button>
+        </ContainerNameButton>
+        <ContainerHeart>
+          <IconHeart onClick={switchFavorite} isFavorite={isFavorite} />
+        </ContainerHeart>
         {/* <ContainerTag>
           {
             platformConsoles.map((platformConsole) => {
