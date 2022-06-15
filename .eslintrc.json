@@ -38,10 +38,7 @@
       "error",
       2
     ],
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
+    "linebreak-style": 0,
     "no-unused-vars": "warn",
     "no-debugger": "warn",
     "arrow-body-style": "warn",

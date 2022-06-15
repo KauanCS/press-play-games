@@ -17,8 +17,9 @@ export const Container = styled.div`
   color: ${(props) => props.theme.color.white};
   justify-content: space-between;
   padding: 0 40px;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 280px) and (max-device-width : 540px) {
     justify-content: flex-end;
+    padding: 10px;
   }
 `;
 
@@ -26,7 +27,7 @@ export const ContainerTextPhone = styled.div`
   display: flex;
   font-size: 16px;
   align-items: center;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width : 280px) and (max-device-width : 540px) {
     display: none;
   }
 `;
@@ -50,17 +51,10 @@ export const ContainerItem = styled.div`
   }
 `;
 
-export const ContainerUser = styled.div`
-  cursor: pointer;
-  padding: 10px;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-`;
-
 export const ContainerButtons = styled.div`
   display: flex;
   gap: 10px;
+  align-items: center;
 `;
 
 export const Text = styled.p`
@@ -88,7 +82,9 @@ export const IconUser = styled(FaUserAlt)``;
 
 export const Menu = styled(AntMenu)``;
 
-export const Dropdown = styled(AntDropdown)``;
+export const Dropdown = styled(AntDropdown)`
+  cursor: pointer;
+`;
 
 export const TextUser = styled.p`
   font-size: 16px;

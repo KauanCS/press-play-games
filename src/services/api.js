@@ -13,7 +13,7 @@ api.interceptors.request.use((config) => {
     ...config,
     headers: {
       ...config.headers,
-      Authentication: user.auth && `Bearer ${user.auth.token}`,
+      Authorization: user.auth && `Bearer ${user.auth.token}`,
     },
   };
 

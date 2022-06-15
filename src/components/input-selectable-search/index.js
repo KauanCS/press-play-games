@@ -13,6 +13,7 @@ const InputSearch = (props) => {
     multiple,
     allowClear,
     width,
+    ...rest
   } = props;
 
   const { Option } = Select;
@@ -20,6 +21,7 @@ const InputSearch = (props) => {
   return (
     <Container>
       <Select
+        {...rest}
         mode={multiple ? 'multiple' : ''}
         allowClear={allowClear}
         showSearch
@@ -30,7 +32,7 @@ const InputSearch = (props) => {
         {_.map(options, (item) => (
           <Option
             key={item.key}
-            value={item.value}
+            value={item.key}
           >
             {item.value}
           </Option>
@@ -44,7 +46,7 @@ InputSearch.propTypes = {
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.string,
+      key: PropTypes.number,
       value: PropTypes.string,
     }),
   ).isRequired,

@@ -29,9 +29,9 @@ export const UserProvider = ({ children }) => {
 
   const getUserPermissions = useCallback((_user) => ({ ..._user, permissions: getTokenClaims(_user.auth.token) }), [getTokenClaims]);
 
-  const userInitalValue = JSON.parse(window.localStorage.getItem('user')) || initialState;
+  const userInitialValue = JSON.parse(window.localStorage.getItem('user')) || initialState;
 
-  const [user, setUser] = useState(getUserPermissions(userInitalValue));
+  const [user, setUser] = useState(getUserPermissions(userInitialValue));
 
   const handleSetUser = useCallback((_user) => {
     setUser(getUserPermissions(_user || initialState));

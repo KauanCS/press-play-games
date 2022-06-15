@@ -4,6 +4,7 @@ import {
   Input as AntInput,
   Checkbox as AntCheckbox,
   Switch as AntSwitch,
+  Button as AntButton,
 } from 'antd';
 
 export const ContainerLeftside = styled.div`
@@ -19,9 +20,6 @@ export const ContainerLeftside = styled.div`
 export const ContainerRow = styled.div`
   display: flex;
   gap: 20px;
-  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
-    flex-direction: column;
-  }
 `;
 
 export const ContainerItemFilter = styled.div`

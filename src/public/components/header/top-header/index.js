@@ -10,7 +10,6 @@ import {
   ContainerItem,
   ContainerPhones,
   ContainerTextPhone,
-  ContainerUser,
   Dropdown,
   IconDown,
   IconUser,
@@ -20,7 +19,7 @@ import {
   TextUser,
 } from './styles';
 
-const firtPhone = '(41) 98882.4830';
+const firstPhone = '(41) 98882.4830';
 const secondPhone = '(41) 98882.4830';
 
 const TopHeader = () => {
@@ -57,7 +56,7 @@ const TopHeader = () => {
       <ContainerPhones>
         <ContainerTextPhone>
           <IconWhatsapp />
-          <Text>{firtPhone}</Text>
+          <Text>{firstPhone}</Text>
         </ContainerTextPhone>
         <ContainerTextPhone>
           <IconWhatsapp />
@@ -68,14 +67,10 @@ const TopHeader = () => {
         {
           (user && user.auth.signed) ? (
             <>
-              <ContainerItem>
-                <ButtonLogin>{user.name}</ButtonLogin>
-              </ContainerItem>
-
               <Dropdown overlay={menu} trigger={['click']}>
                 <TextUser>
                   <IconUser />
-                  Click me
+                  {user.name || 'Meu perfil'}
                   <IconDown />
                 </TextUser>
               </Dropdown>
@@ -91,7 +86,6 @@ const TopHeader = () => {
             </>
           )
         }
-        <ContainerUser />
       </ContainerButtons>
     </Container>
   );

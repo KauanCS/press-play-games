@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ContainerLeftside,
@@ -14,24 +15,24 @@ import {
 import SelectableSearch from '../../../../components/input-selectable-search';
 import FilterWrapper from '../../../../components/filter-wrapper';
 
-const PLATFORM_OPTIONS = ['PS4', 'PS5'];
-const ACCOUNT_OPTIONS = ['Primária', 'Secundária'];
-
-const Filter = () => {
-  const testArrayAutocomplete = [
-    { key: '1', value: 'A' },
-    { key: '2', value: 'B' },
-    { key: '3', value: 'C' },
-    { key: '4', value: 'D' },
-    { key: '5', value: 'E' },
-  ];
-
+const Filter = ({
+  onFilterChange,
+  filterValues,
+  categories,
+  platformConsoles,
+  platformAccountTypes,
+  setSelectedOrder,
+}) => {
   const { Search } = Input;
 
-  const onSearch = (value) => console.log(value);
+  const onSearch = (value) => onFilterChange({ ...filterValues, search: value });
+  const onOnlyAvaliable = (value) => onFilterChange({ ...filterValues, onlyAvaliable: value });
+  const onCategories = (values) => onFilterChange({ ...filterValues, categories: [...values] });
+  const onPlatformAccountTypes = (values) => onFilterChange({ ...filterValues, platformAccountTypes: [...values] });
+  const onPlatformConsoles = (values) => onFilterChange({ ...filterValues, platformConsoles: [...values] });
 
   return (
-    <FilterWrapper>
+    <FilterWrapper setSelectedOrder={setSelectedOrder}>
       <ContainerLeftside>
 
         <ContainerSearchFilter>
@@ -43,7 +44,9 @@ const Filter = () => {
 
           <SelectableSearch
             placeholder="Selecione as categorias"
-            options={testArrayAutocomplete}
+            options={categories.map((item) => ({ value: item.name, key: item.id }))}
+            defaultValue={filterValues.categories}
+            onChange={onCategories}
             multiple
           />
         </ContainerSearchFilter>
@@ -53,8 +56,8 @@ const Filter = () => {
             <Label>Plataforma: </Label>
 
             <CheckboxGroup
-              options={PLATFORM_OPTIONS}
-              defaultValue={['PS4', 'PS5']}
+              options={platformConsoles.map((item) => ({ label: item.name, value: item.id }))}
+              onChange={onPlatformConsoles}
             />
           </ContainerItemFilter>
 
@@ -62,8 +65,8 @@ const Filter = () => {
             <Label>Tipo de conta: </Label>
 
             <CheckboxGroup
-              options={ACCOUNT_OPTIONS}
-              defaultValue={['Primária', 'Secundária']}
+              options={platformAccountTypes.map((item) => ({ label: item.name, value: item.id }))}
+              onChange={onPlatformAccountTypes}
             />
           </ContainerItemFilter>
         </ContainerRow>
@@ -71,12 +74,21 @@ const Filter = () => {
         <ContainerItemFilter responsiveRow>
           <Label>Mostrar apenas disponíveis: </Label>
 
-          <Switch defaultChecked />
+          <Switch checked={filterValues.onlyAvaliable} onClick={onOnlyAvaliable} />
         </ContainerItemFilter>
       </ContainerLeftside>
 
     </FilterWrapper>
   );
+};
+
+Filter.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  filterValues: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
+  platformConsoles: PropTypes.array.isRequired,
+  platformAccountTypes: PropTypes.array.isRequired,
+  setSelectedOrder: PropTypes.func.isRequired,
 };
 
 export default Filter;

@@ -9,10 +9,13 @@ import HowItWorks from './public/pages/how-it-works';
 import Catalogue from './public/pages/catalogue';
 import Contact from './public/pages/contact';
 import Login from './public/pages/login';
+import Confirmation from './public/pages/confirmation';
 import SignUp from './public/pages/sign-up';
 import Cart from './public/pages/cart';
 import MyAccount from './public/pages/my-account';
 import Historic from './public/pages/historic';
+import VerifyAccount from './public/pages/verify-account';
+import Banned from './public/pages/banned';
 
 import MenuWrapper from './components/menu-wrapper';
 import Games from './admin/pages/games';
@@ -33,10 +36,13 @@ const Routes = () => {
           <Route exact path="/contato" component={Contact} wrapper={PublicWrapper} />
           <Route exact unsignedRoute path="/login" component={Login} wrapper={PublicWrapper} />
           <Route exact unsignedRoute path="/cadastrar" component={SignUp} wrapper={PublicWrapper} />
+          <Route exact path="/confirmacao" component={Confirmation} wrapper={PublicWrapper} />
 
+          <Route exact privateRoute path="/confirm-account" component={VerifyAccount} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/banned" component={Banned} wrapper={PublicWrapper} />
           <Route exact privateRoute path="/carrinho" component={Cart} wrapper={PublicWrapper} />
-          <Route exact path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
-          <Route exact path="/historico" component={Historic} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/minha-conta" component={MyAccount} wrapper={PublicWrapper} />
+          <Route exact privateRoute path="/historico" component={Historic} wrapper={PublicWrapper} />
 
           {/* Admin routes */}
           <Route exact privateRoute path="/pedidos" component={Pedidos} wrapper={MenuWrapper} />

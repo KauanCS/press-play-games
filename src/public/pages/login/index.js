@@ -36,13 +36,13 @@ const Login = () => {
     setLoading(true);
     const response = await doLogin(values);
 
-    if (response.status === 401) {
+    if (response && response.status === 401) {
       setErrors([{ message: response.data.message, type: 'error' }]);
       setLoading(false);
       return;
     }
 
-    setUser({ ...user, auth: { token: response.data.token, signed: true, name: response.data.name } });
+    setUser({ auth: { token: response.data.token, signed: true }, user: { ...user, ...response.data.user } });
     history.push('/');
   };
 
